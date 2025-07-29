@@ -1,0 +1,11 @@
+package spring.mvc.basic_ict05.ch02;
+
+public class LgTV {
+	
+	public LgTV{
+		System.out.println("LG 티비임당");
+	}
+	
+	
+
+}

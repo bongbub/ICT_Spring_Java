@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 방법 1. new 연산자로 객체 생성해서 디폴트 생성자 호출 -->
+	<!-- SamsungTV tv = new SamsungTV(); -->
+	
+	
+	<!-- 방법 2. XML에서 객체 생성 표현 -->
+	<!-- <bean id="참조변수" class="패키지명.클래스명" /> -->
+	
+	
+	<bean id="tv" class="ch01.SamsungTV"
+	
+</beans>

@@ -1,0 +1,23 @@
+package spring.mvc.basic_ict05.ch01;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("[ 방법 1) 자바에서 인스턴스 생성 ]");
+		
+		// 방법 1. new 연산자를 이용해서 객체 생성
+		SamsungTV tv = new SamsungTV();
+		tv.powerOn();
+		tv.powerOff();
+		tv.volumeUp();
+		tv.volumeDown();
+		
+		// 실행 -> Java Application
+		
+		System.out.println("[ 방법 2) XML에서 인스턴스 생성 후 , IoC 컨테이너 이용해서 로딩 ]");
+		
+		new GenericXmlApplicationContext("appContext_01.xml");
+		
+	}
+}
