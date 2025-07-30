@@ -1,0 +1,12 @@
+package spring.mvc.basic_ict05.ch05;
+
+public class AppleSpeaker {
+
+	public void volUp() {
+		System.out.println("AppleSpeaker - volUp()");
+	}
+	
+	public void volDown() {
+		System.out.println("AppleSpeaker - volDown()");
+	}
+}

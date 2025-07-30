@@ -1,0 +1,47 @@
+package spring.mvc.basic_ict05.ch10;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("lgtv")	
+public class LgTV implements TV{
+
+	
+	// expected single matching bean but found 2: [apple, sony]
+	// @Autowired			
+	// private Speaker speaker;			
+	// ---> Speaker 인터페이스 클래스(자식객체 Apple, Sony) 가 두개이므로 안됨 만약 한개였다면 ok
+	//  ---> 지금과 같이, 구현클래스가 두 개 이상일 때, 콕 찝어서 지정해주는 어노테이션(@Qualifier) ==> 자격을 부여한다
+	
+	@Qualifier("sony")
+	private Speaker speaker;			
+								
+	// 디폴생
+	public LgTV() {
+		System.out.println("LgTV의 디폴트생성자");
+	}
+	
+	@Override
+	public void volUP() {
+		//System.out.println("LgTV - volUP()");
+		speaker.volumeUp();
+	}
+
+	@Override
+	public void volDo() {
+		//System.out.println("LgTV - vulDo()");
+		speaker.volumeDown();
+	}
+
+	@Override
+	public void powerOn() {
+		System.out.println("LgTV - powerOn()");
+	}
+
+	@Override
+	public void powerDown() {
+		System.out.println("LgTV - powerDown()");
+	}
+	
+}

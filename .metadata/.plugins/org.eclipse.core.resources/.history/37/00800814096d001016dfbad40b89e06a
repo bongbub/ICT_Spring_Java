@@ -1,0 +1,21 @@
+package spring.mvc.basic_ict05.ch10;
+
+import org.springframework.stereotype.Component;
+
+@Component("sony")
+public class SonySpeaker {
+	
+	// 디폴트 생성자
+	//public SonySpeaker() {
+	//	System.out.println("소니입니당");
+	//}
+	
+	// volUp volDown
+	public void volUp() {
+		System.out.println("SonySpeaker - volUp()");
+	}
+	
+	public void volDown() {
+		System.out.println("SonySpeaker - volDown()");
+	}
+}

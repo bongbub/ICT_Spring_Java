@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- 디폴트 생성자를 통한 호출 -->
+	<bean id="sam" class="spring.mvc.basic_ict05.ch04.SamsungTV" />
+	
+	
+	<!-- 자바에서 매개변수 생성자 호출하던 방법 -->
+	<!-- SamsungTV sam = new SamsungTV(sony, "삼성", 1200000); -->
+	
+	<!-- 생성자 호출 : 매개변수 생성자 => DI(Dependency Injection - 생성자 Injection )) -->
+	<bean id="sams" class="spring.mvc.basic_ict05.ch04.SamsungTV" >
+		<constructor-arg index="0" ref="sony" />		<!-- index는 생략 가능, but 그럼 순서를 정확히 지켜야함 --> 
+		<!-- 여기선 value가 아닌 ref(참조) 인 이유, -> 어딘가를 참조하고있기 때문에. (여기선 SonySpeaker) -->
+		<constructor-arg value="삼성"/>
+		<constructor-arg value="120000"/>
+	</bean>
+	
+	<!-- Java에서 SonySpeaker 디폴생의 객체생성 -->
+	<!-- SonySpeaker sony = new SonySpeaker(); -->
+	
+	<bean id="sony" class="spring.mvc.basic_ict05.ch04.SonySpeaker" />
+
+</beans>

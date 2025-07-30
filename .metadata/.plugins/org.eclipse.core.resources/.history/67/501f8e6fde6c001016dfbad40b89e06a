@@ -1,0 +1,16 @@
+package spring.mvc.basic_ict05.ch03;
+
+public class SonySpeaker {
+	
+	// 디폴트 생성자
+	
+	
+	// volUp volDown
+	public void volUp() {
+		
+	}
+	
+	public void volDown() {
+		
+	}
+}

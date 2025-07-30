@@ -1,0 +1,42 @@
+package spring.mvc.basic_ict05.ch10;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("lgtv")	
+public class LgTV implements TV{
+
+	@Autowired			
+	private Speaker apple;			
+								
+	@Autowired
+	private Speaker sony;
+
+	// 디폴생
+	public LgTV() {
+		System.out.println("LgTV의 디폴트생성자");
+	}
+	
+	@Override
+	public void volUP() {
+		//System.out.println("LgTV - volUP()");
+		apple.volumeUp();
+	}
+
+	@Override
+	public void volDo() {
+		//System.out.println("LgTV - vulDo()");
+		apple.volumeDown();
+	}
+
+	@Override
+	public void powerOn() {
+		System.out.println("LgTV - powerOn()");
+	}
+
+	@Override
+	public void powerDown() {
+		System.out.println("LgTV - powerDown()");
+	}
+	
+}

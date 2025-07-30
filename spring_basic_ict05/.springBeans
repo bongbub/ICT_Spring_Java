@@ -9,6 +9,13 @@
 	<configs>
 		<config>src/main/resources/appContext_01.xml</config>
 		<config>src/main/resources/appContext_02.xml</config>
+		<config>src/main/resources/appContext_03.xml</config>
+		<config>src/main/resources/appContext_04.xml</config>
+		<config>src/main/resources/appContext_05.xml</config>
+		<config>src/main/resources/appContext_07.xml</config>
+		<config>src/main/resources/appContext_08.xml</config>
+		<config>src/main/resources/appContext_09.xml</config>
+		<config>src/main/resources/appContext_10.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>

@@ -1,0 +1,39 @@
+package spring.mvc.basic_ict05.ch08;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("lgtv")			// getBean("tv")를 주었기 때문에 tv붙여줘야함
+public class LgTV implements TV{
+
+	@Autowired		//@Component("")로 객체 생성 후, 자동으로 객체주소를 연결해줌
+	AppleSpeaker apple;			// null에서, @Autowired 한 순간, 주소값이 연결됨
+
+	// 디폴생
+	public LgTV() {
+		System.out.println("LgTV의 디폴트생성자");
+	}
+	
+	@Override
+	public void volUP() {
+		//System.out.println("LgTV - volUP()");
+		apple.volUp();
+	}
+
+	@Override
+	public void volDo() {
+		//System.out.println("LgTV - vulDo()");
+		apple.volDown();
+	}
+
+	@Override
+	public void powerOn() {
+		System.out.println("LgTV - powerOn()");
+	}
+
+	@Override
+	public void powerDown() {
+		System.out.println("LgTV - powerDown()");
+	}
+	
+}

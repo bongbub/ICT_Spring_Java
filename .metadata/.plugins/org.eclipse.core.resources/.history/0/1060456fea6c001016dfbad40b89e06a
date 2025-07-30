@@ -1,0 +1,40 @@
+package spring.mvc.basic_ict05.ch05;
+
+public class LgTV implements TV{
+
+	private AppleSpeaker apple;	// 주소값
+	private String brand;		// 브랜드
+	private int price;			// price
+	private int bonusPoint;		// bonusPoint
+
+	// 매개변수생성자
+	public LgTV(AppleSpeaker apple, String brand, int price, int bonusPoint) {
+		this.apple = apple;
+		this.brand = brand;
+		this.price = price;
+		this.bonusPoint = bonusPoint;
+	}
+	
+	@Override
+	public void volUP() {
+		System.out.println("LgTV - volUP()");
+	}
+
+	@Override
+	public void volDo() {
+		System.out.println("LgTV - vulDo()");
+	}
+
+	@Override
+	public void powerOn() {
+		System.out.println("LgTV - powerOn()");
+	}
+
+	@Override
+	public void powerDown() {
+		System.out.println("LgTV - powerDown()");
+	}
+	
+	
+
+}
