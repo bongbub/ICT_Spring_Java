@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* 우측내용 시작 */
+#right {
+	width: 88%;
+	align-items: center;
+}
+
+
+.table_div  table {
+	border-collapse: collapse;
+	border:1px solid grey;
+	width: 800px; 
+	text-align: center;
+}
+
+.table_div  table th {
+	background: #e7e7e7;
+	width:20%;
+}
+
+.table_div  table th, td {
+	border-top :1px solid grey;
+	height: 50px;
+	padding-left: 2px;
+	text-align: center;
+	min-width:100px;
+}
+
+.boardList {
+	align-content: center;
+}

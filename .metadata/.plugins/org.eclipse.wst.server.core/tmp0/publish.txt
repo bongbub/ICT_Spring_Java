@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Wed Jul 30 17:24:49 KST 2025
-org.eclipse.jst.jee.server\:spring_mvc_ict05=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_mvc_ict05
-org.eclipse.jst.jee.server\:spring_basic_ict05=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_basic_ict05
+#Thu Jul 31 17:33:22 KST 2025
+org.eclipse.jst.jee.server\:spring_pj_ict05=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_pj_ict05
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict1\\.m2\\repository\\org\\springframework\\spring-web\\5.1.8.RELEASE\\spring-web-5.1.8.RELEASE.jar=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_pj_ict05\\WEB-INF\\lib\\spring-web-5.1.8.RELEASE.jar
