@@ -131,17 +131,23 @@ public class CustomerServiceImpl implements CustomerService{
 		}
 	}
 
-	/*
 	// 회원정보 인증처리 및 탈퇴처리 
 	@Override
-	public void deleteCustomerAction(HttpServletRequest request, HttpServletResponse response)
+	public void deleteCustomerAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println("CustomerServiceImpl - deleteCustomerAction()");
 		
 		String strID = (String)request.getSession().getAttribute("sessionID");
 		String strPwd = request.getParameter("user_password");
-		CustomerDAO dao = CustomerDAOImpl.getInstance();
-		int selectCnt = dao.idPasswordChk(strID, strPwd);
+		
+//		CustomerDAO dao = CustomerDAOImpl.getInstance();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("strID", strID);
+		map.put("strPwd", strPwd);
+		
+		// 아이디&패스워드 인증
+		int selectCnt = dao.idPasswordChk(map);
 		int deleteCnt = 0;
 		if(selectCnt == 1) {
 			deleteCnt = dao.deleteCustomer(strID);	
@@ -151,34 +157,41 @@ public class CustomerServiceImpl implements CustomerService{
 				request.getSession().invalidate();
 			}
 		}
-		request.setAttribute("selectCnt", selectCnt);
-		request.setAttribute("deleteCnt", deleteCnt);
+		model.addAttribute("selectCnt", selectCnt);
+		model.addAttribute("deleteCnt", deleteCnt);
 		
 	}
 	
+	
 	// 회원정보 인증처리 및 상세페이지 조회
 	@Override
-	public void modifyDetailAction(HttpServletRequest request, HttpServletResponse response)
+	public void modifyDetailAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println("CustomerServiceImpl - modifyDetailAction()");
 		
 		String strID = (String)request.getSession().getAttribute("sessionID");
 		String strPwd = request.getParameter("user_password");
 		
-		CustomerDAO dao = CustomerDAOImpl.getInstance();
+//		CustomerDAO dao = CustomerDAOImpl.getInstance();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("strId", strID);
+		map.put("strPwd", strPwd);
+		int selectCnt = dao.idPasswordChk(map);
+		
 		CustomerDTO dto =  null;
-		int selectCnt = dao.idPasswordChk(strID, strPwd);
 		if(selectCnt == 1) {
 			dto = dao.getCustomerDetail(strID);
 		}
 		System.out.println(selectCnt);
-		request.setAttribute("selectCnt", selectCnt);
-		request.setAttribute("dto", dto);
+		model.addAttribute("selectCnt", selectCnt);
+		model.addAttribute("dto", dto);
 	}
+	
 	
 	// 회원정보 수정처리
 	@Override
-	public void modifyCustomerAction(HttpServletRequest request, HttpServletResponse response)
+	public void modifyCustomerAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println("CustomerServiceImpl - modifyCustomerAction()");
 		
@@ -205,11 +218,10 @@ public class CustomerServiceImpl implements CustomerService{
 		dto.setUser_email(email);
 		dto.setUser_regdate(new Timestamp(System.currentTimeMillis()));
 		
-		CustomerDAO dao = CustomerDAOImpl.getInstance();
+//		CustomerDAO dao = CustomerDAOImpl.getInstance();
 		int updateCnt = dao.updateCustomer(dto);
 		System.out.println("updateCnt :"+ updateCnt);
 		System.out.println(dto);
 		request.setAttribute("updateCnt", updateCnt);
 	}
-	*/
 }

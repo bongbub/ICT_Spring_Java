@@ -54,111 +54,33 @@ public class CustomerDAOImpl implements CustomerDAO{
 	// 로그인 처리 / 회원정보 인증(수정, 탈퇴)
 	@Override
 	public int idPasswordChk(Map<String, Object> map) {
-		
+		System.out.println("CustomerDAOImpl - idPasswordChk() ");
 		int loginCnt = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.CustomerDAO.idPasswordChk", map);
 			
 		return loginCnt;
 	}
 
-	/*
 	// 회원정보 인증처리 및 탈퇴처리 
 	@Override
-	public int deleteCustomer(String strId) {
-		int deleteCnt = 0;
-		Connection conn= null;
-		PreparedStatement pstmt = null;
+	public int deleteCustomer(String strID) {
+		System.out.println("CustomerDAOImpl - deleteCustomer() ");
 		
-		try {
-			String query = "DELETE FROM mvc_customer_tbl WHERE user_id=?";
-			conn = dataSource.getConnection();
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, strId);
-			deleteCnt = pstmt.executeUpdate();
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null) conn.close();
-				if(pstmt != null) pstmt.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		int deleteCnt = sqlSession.delete("spring.mvc.spring_pj_ict05.dao.CustomerDAO.deleteCustomer", strID);
+		
 		return deleteCnt;
 	}
 
 	// 상세페이지 조회
 	@Override
-	public CustomerDTO getCustomerDetail(String strId) {
-		CustomerDTO dto = new CustomerDTO();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String query = "SELECT * FROM mvc_customer_tbl WHERE user_id = ?";
-		try {
-			conn = dataSource.getConnection();
-			pstmt =  conn.prepareStatement(query);
-			pstmt.setString(1, strId);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				dto.setUser_id(rs.getString("user_id"));
-				dto.setUser_password(rs.getString("user_password"));
-				dto.setUser_name(rs.getString("user_name"));
-				dto.setUser_birthday(rs.getDate("user_birthday"));
-				dto.setUser_address(rs.getString("user_address"));
-				dto.setUser_hp(rs.getString("user_hp"));
-				dto.setUser_email(rs.getString("user_email"));
-				dto.setUser_regdate(rs.getTimestamp("user_regdate"));
-			}
-			
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null) conn.close();
-				if(pstmt != null) pstmt.close();
-				if(rs != null) rs.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
+	public CustomerDTO getCustomerDetail(String strID) {
+		CustomerDTO dto = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.CustomerDAO.getCustomerDetail", strID);
 		return dto;
 	}
 
 	// 회원정보 수정처리
 	@Override
 	public int updateCustomer(CustomerDTO dto) {
-		String query = "UPDATE mvc_customer_tbl SET user_password=? ,"
-				+ " user_name=?, user_birthday=? , user_address=? , user_hp=? , user_email=?, user_regdate=? WHERE user_id = ?";
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int updateCnt = 0;
-		try {
-			conn = dataSource.getConnection();
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, dto.getUser_password());
-			pstmt.setString(2, dto.getUser_name());
-			pstmt.setDate(3, dto.getUser_birthday());
-			pstmt.setString(4, dto.getUser_address());
-			pstmt.setString(5, dto.getUser_hp());
-			pstmt.setString(6, dto.getUser_email());
-			pstmt.setTimestamp(7, dto.getUser_regdate());
-			pstmt.setString(8, dto.getUser_id());
-			
-			updateCnt = pstmt.executeUpdate();
-			
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(conn != null) conn.close();
-				if(pstmt != null) pstmt.close();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-		}
+		int updateCnt = sqlSession.update("spring.mvc.spring_pj_ict05.dao.CustomerDAO.updateCustomer", dto);
 		return updateCnt;
 	}
-	 */	
-
 }

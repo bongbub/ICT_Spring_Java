@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	  
+<mapper namespace="spring.mvc.spring_pj_ict05.dao.BoardDAO">  <!-- namespace="패키지명.인터페이스" -->
+	
+	<!--  게시글 목록 -->
+	<select id="boardList" parameterType="java.util.Map" resultType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
+		SELECT *
+			FROM
+			(SELECT A.*
+			, rownum AS rn
+						FROM
+	  	(SELECT * FROM mvc_board_tbl
+				WHERE b_show = 'Y' 
+				ORDER BY b_num DESC)  A
+		)
+						 WHERE rn BETWEEN #{start} AND  #{end}
+	</select>
+	
+ 	<!-- 게시글 갯수 구하기 -->
+	<select id="boardCnt" resultType="int">
+		SELECT COUNT(*) AS cnt FROM mvc_board_tbl WHERE b_show = 'Y'
+	</select> 
+	
+	<!-- 조회수 증가 -->
+	<update id="plusReadCnt" parameterType="int">
+		UPDATE mvc_board_tbl
+						SET b_readCnt = b_readCnt + 1
+						WHERE b_num = #{num}
+	</update>
+	
+	
+	<!-- 게시글 상세 처리 -->
+	<select id="getBoardDetail" parameterType="int" resultType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
+		SELECT * FROM mvc_board_tbl 
+						WHERE b_num = #{num}
+	</select>
+	
+	<!-- 게시글 수정삭제 버튼 클릭시 - 비밀번호 인증처리 -->
+	<select id="password_chk" parameterType="java.util.Map" resultType="int">
+		SELECT count(*) AS cnt FROM MVC_BOARD_TBL
+					WHERE b_num = #{num}
+					AND b_password = #{password}
+	</select>
+	
+	<!-- 게시글 수정 처리 -->
+	<update id="updateBoard" parameterType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
+		UPDATE mvc_board_tbl
+					 SET b_password = #{b_password} 
+					, b_title = #{b_title}
+					, b_content = #{b_content}
+					  WHERE b_num = #{b_num}
+	</update>
+	
+	<!-- 추가 후 작성한 게시글로 이동 -->
+	
+	
+	<!-- 게시글 삭제 처리 -->
+	<update id="deleteBoard" parameterType="int">
+		UPDATE mvc_board_tbl "
+					 SET b_show = 'N'
+					 WHERE b_num = #{num}
+	
+	</update>
+	
+	<!-- 댓글 작성 처리 -->
+	
+	
+	<!-- 댓글 목록 -->
+	
+ </mapper> 

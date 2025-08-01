@@ -7,13 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
+
 </head>
 <body>
 	<!-- header 시작 -->
 	<!-- 요청 : url, button, link -->
 	<nav class="navbar">
 		<ul class="navbar_title">
-			<li><img src="" alt=""><i class="fa-solid fa-dragon"></i></li>
+			<li><i class="fa-solid fa-dragon"></i></li>
 		</ul>
 		<ul class="navbar_menu">
 			<li><a href="${path}/main.do">홈</a></li>

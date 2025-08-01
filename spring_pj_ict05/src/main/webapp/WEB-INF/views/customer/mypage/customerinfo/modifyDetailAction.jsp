@@ -1,4 +1,4 @@
-<%@page import="spring.mvc.spring_pj_ict05.dto.CustomerDTO"%>
+<%-- <%@page import="spring.mvc.spring_pj_ict05.dto.CustomerDTO"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     

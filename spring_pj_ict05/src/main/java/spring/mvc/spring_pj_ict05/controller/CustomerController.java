@@ -101,18 +101,55 @@ public class CustomerController {
 	
 	// [회원탈퇴] -----------------------------------
 	// 회원탈퇴 - 인증화면
+	@RequestMapping("/deleteCustomer.do")
+	public String deleteCustomer(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info(">>> CustomerController - /deleteCustomer.do <<<");
+		
+		return "customer/mypage/customerinfo/deleteCustomer";
+	}
 	
 	// 회원탈퇴 처리
-	
-	
+	@RequestMapping("/deleteCustomerAction.do")
+	public String deleteCustomerAction(HttpServletRequest request , HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		
+		logger.info(">>> CustomerController - /deleteCustomerAction.do <<<");
+		
+		service.deleteCustomerAction(request, response, model);
+		return "customer/mypage/customerinfo/deleteCustomerAction";
+
+	}
 	
 	
 	// [회원 수정] -----------------------------------
 	// 회원수정 - 인증화면
-	
+	@RequestMapping("/modifyCustomer.do")
+	public String modifyCustomer(HttpServletRequest request , HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info(">>> CustomerController - /modifyCustomer.do <<<");
+		
+		return "customer/mypage/customerinfo/modifyCustomer";
+	}
 	// 회원수정 - 상세페이지
+	@RequestMapping("/modifyDetailAction.do")
+	public String modifyDetailAction(HttpServletRequest request , HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		
+		logger.info(">>> CustomerController - /modifyDetailAction.do <<<");
+		service.modifyDetailAction(request, response, model);
+		return "customer/mypage/customerinfo/modifyDetailAction";
+	}
 	
 	
 	// 회원수정 - 수정처리
-	
+	@RequestMapping("/modifyCustomerAction.do")
+	public String modifyCustomerAction(HttpServletRequest request , HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info(">>> CustomerController - /modifyDetailAction.do <<<");
+		
+		service.modifyCustomerAction(request, response, model);
+		
+		return "customer/mypage/customerinfo/modifyCustomerAction";
+	}
 }

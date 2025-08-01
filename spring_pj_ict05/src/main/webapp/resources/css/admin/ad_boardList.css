@@ -30,12 +30,14 @@
 
 .table_div {
 	margin-top: 30px;
-	align-self: center;
+	overflow-x:auto;
+	max-width:100%
 }
 
 .table_div  table {
 	border-collapse: collapse;
-	width: 800px; 
+	width: 100%; 
+	min-width:800px;
 	align-content: center;
 	border-bottom:1px solid #545454;
 }
