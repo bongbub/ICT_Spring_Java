@@ -26,7 +26,7 @@ public class ProductDAOImpl implements ProductDAO{
 //		return insertCnt;
 		
 		// 방법 2) - 메서드를 통한 접근
-		ProductDAO dao = sqlSession.getMapper(ProductDAO.class);	// 인터페이스(명세서) 호출 -> DAOImpl에서 오버라이드된 메서드로 호출됨
+		ProductDAO dao = sqlSession.getMapper(ProductDAO.class);	// 인터페이스(명세서) 호출 -> DAOImpl에서 오버라이드 된 메서드로 호출됨
 		int insertCnt = dao.productInsert(dto);		//productInsert를 호출한다는 것은, Mapper의 productInsert를 호출하는 것과 같음
 												// 위에 ProductDAO를 호출해주며 -> 인터페이스 호출 ==> 구현화 메서드(DAOImpl) 호출과 같음.
 		return insertCnt;
