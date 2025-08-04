@@ -31,24 +31,26 @@
 		<div class="table_div">
 		
 			<form name="boardList" class="boardList">
-				<table border="1">
-					<tr>
-						<th>글번호</th>
-						<th>작성자</th>
-						<th>글내용</th>
-						<th>작성일</th>
-					</tr>
-					
-					<!-- 게시글이 있으면 -->
-					<c:forEach var="dto" items="${list}">
+				<c:if test="${not empty list }">
+					<table border="1">
 						<tr>
-							<td>${dto.c_board_num}</td>
-							<td>${dto.c_writer}</td>
-							<td>${dto.c_content}</td>
-							<td>${dto.c_regDate}</td>
+							<th>글번호</th>
+							<th>작성자</th>
+							<th>글내용</th>
+							<th>작성일</th>
 						</tr>
-					</c:forEach>
-				</table>
+						
+						<!-- 게시글이 있으면 -->
+						<c:forEach var="dto" items="${list}">
+							<tr>
+								<td>${dto.c_board_num}</td>
+								<td>${dto.c_writer}</td>
+								<td>${dto.c_content}</td>
+								<td>${dto.c_regDate}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</c:if>
 			</form>
 		</div>
 	</div>

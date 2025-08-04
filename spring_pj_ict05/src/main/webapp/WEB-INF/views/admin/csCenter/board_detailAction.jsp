@@ -173,7 +173,7 @@
 								<br><br><br>
 								
 								<!-- 댓글 목록 코드 -->
-								<div id="comment_list" class="comment">
+								<div id="comment_list" class="comment" align="center">
 									<!-- 댓글 목록 -->
 									
 								</div>
@@ -184,26 +184,22 @@
 										<th>작성자</th>
 										<td>
 											<input type="text" class="input_com" name="c_writer"
-												id="c_writer" size="50" placeholer="작성자 입력">
+												id="c_writer" size="50" placeholder="작성자 입력">
 										</td>
-									</tr>
-									<tr>
-										<th rowspan="2" align="right" >
-											<div align="center">
-												<input type="button" class="inputButton" value="작성" id="btnCommentSave">
-											</div>
-										</th>
 									</tr>
 									<tr>
 										<th>글내용</th>
 										<td>
 											<textarea rows="5" cols="93" name="c_content" id="c_content" placeholder="댓글입력">
-											
 											</textarea>
+										</td>
+										<td>
+											<div align="center">
+												<input type="button" class="inputButton" value="작성" id="btnCommentSave">
+											</div>
 										</td>
 									</tr>
 								</table>
-								
 							</form>
 						</div>
 					</div>

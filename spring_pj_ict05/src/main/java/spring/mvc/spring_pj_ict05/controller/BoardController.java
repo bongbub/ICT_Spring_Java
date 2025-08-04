@@ -89,14 +89,47 @@ public class BoardController {
 	}
 	
 	// [게시글 작성] 화면
+	@RequestMapping("/board_insert.bc")
+	public String board_insert(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info("   <<< url  ==>   /board_insert.bc  >>> ");
+		
+		return "admin/csCenter/board_insert";
+	}
 	
 	
-	// [게시글 작성] 처리 
+	// [게시글 작성] 처리
+	@RequestMapping("board_insertAction.bc")
+	public String board_insertAction(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info("   <<< url  ==>   /board_insertAction.bc  >>> ");
+		
+		int num = service.boardInsertAction(request, response, model);
+		String viewPage = request.getContextPath()+"/board_detailAction.bc?b_num="+num;
+		response.sendRedirect(viewPage);
+		return null;
+	}
 	
 	
 	// [댓글 작성] 처리(4)
+	@RequestMapping("/comment_insert.bc")
+	public String comment_insert(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException {
+		logger.info("   <<< url  ==>   /comment_insert.bc  >>> ");
+		service.commentAddAction(request, response, model);
+//		String viewPage = "admin/csCenter/comment_insert";
+//		response.sendRedirect(viewPage);
+		return null;
+	}
 	
 	
 	// [댓글 목록] 처리  (10)
+	@RequestMapping("/comment_list.bc")
+	public String comment_list(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		logger.info("   <<< url  ==>   /comment_list.bc  >>> ");
+		service.commentListAction(request, response, model);
+		return "admin/csCenter/comment_list";
+	}
 	
 }

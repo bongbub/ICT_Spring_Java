@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-/* 우측내용 시작 */
-#right {
-	width: 88%;
-	align-items: center;
-}
-
 
 .table_div  table {
 	border-collapse: collapse;
@@ -27,6 +21,20 @@
 	min-width:100px;
 }
 
-.boardList {
-	align-content: center;
+.comment {
+	width:800px;
+	margin:40 auto;
+}
+.comment table {
+	width:100%;
+}
+
+#comment_list.comment {
+	width: 800px;
+	margin: 0 auto;
+}
+
+table.comment {
+	width : 800px;
+	margin: 0 auto;
 }

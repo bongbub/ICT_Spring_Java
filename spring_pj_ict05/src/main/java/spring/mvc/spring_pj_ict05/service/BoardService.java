@@ -30,18 +30,17 @@ public interface BoardService {
 	// 게시글 삭제 처리
 	public void boardDeleteAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
-	/*
+	
 	// 게시글 작성 처리
-	public int boardInsertAction(HttpServletRequest request, HttpServletResponse response)
+	public int boardInsertAction(HttpServletRequest request, HttpServletResponse response, Model model)
 	 		throws ServletException, IOException;
 	
 	// 댓글 작성 처리
-	public void commentAddAction(HttpServletRequest request, HttpServletResponse response) 
+	public void commentAddAction(HttpServletRequest request, HttpServletResponse response, Model model) 
 			throws ServletException, IOException;
 	
 	// 댓글 목록 처리
-	public void commentListAction(HttpServletRequest request, HttpServletResponse response)
+	public void commentListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException;
 	
-	*/
 }

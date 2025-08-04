@@ -48,7 +48,7 @@
 	
 	<!-- 게시글 수정 처리 -->
 	<update id="updateBoard" parameterType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
-		UPDATE mvc_board_tbl
+		UPDATE mvc_board_tbl 
 					 SET b_password = #{b_password} 
 					, b_title = #{b_title}
 					, b_content = #{b_content}
@@ -56,19 +56,54 @@
 	</update>
 	
 	<!-- 추가 후 작성한 게시글로 이동 -->
-	
+	<select id="moveRecentBoard" parameterType="String" resultType="int">
+		SELECT max(b_num) as num FROM mvc_board_tbl WHERE b_writer = #{writer}
+	</select>
 	
 	<!-- 게시글 삭제 처리 -->
 	<update id="deleteBoard" parameterType="int">
-		UPDATE mvc_board_tbl "
+		UPDATE mvc_board_tbl
 					 SET b_show = 'N'
 					 WHERE b_num = #{num}
 	
 	</update>
 	
+	<!-- 게시글 작성 처리 -->
+	<insert id="insertBoard" parameterType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
+		INSERT INTO mvc_board_tbl(b_num, B_TITLE, B_WRITER, B_CONTENT, B_PASSWORD)
+				values((SELECT nvl(MAX(b_num)+1,1) 
+				FROM mvc_board_tbl), #{b_title}, #{b_writer}, #{b_content}, #{b_password})
+	</insert>
+	
+	
 	<!-- 댓글 작성 처리 -->
+	<insert id="insertComment" parameterType="spring.mvc.spring_pj_ict05.dto.BoardCommentDTO">
+		INSERT INTO mvc_comment_tbl(c_comment_num, c_board_num, c_writer, c_content)
+			Values((SELECT nvl(MAX(c_comment_num)+1, 1) 
+			FROM mvc_comment_tbl), #{c_board_num}, #{c_writer}, #{c_content})
+	</insert>
+	
+	<!-- 댓글갯수표시 -->
+	<update id="commentCount" parameterType="int">
+		UPDATE mvc_board_tbl SET b_comment_count = 
+			b_comment_count + 1 WHERE b_num = #{b_num}
+	</update>
 	
 	
 	<!-- 댓글 목록 -->
+	<select id="commentList" parameterType="int" resultType="spring.mvc.spring_pj_ict05.dto.BoardCommentDTO">
+		SELECT * FROM
+	       (SELECT A.*
+	        , rownum AS rn
+	        FROM
+	        (SELECT * 
+	         FROM mvc_comment_tbl c,
+	         mvc_board_tbl b 
+	         WHERE b.b_num = c.c_board_num 
+	         AND b_num = #{board_num} 
+	         ORDER BY c_comment_num DESC) A
+	         )
+	         ORDER BY rn desc
+	</select>
 	
  </mapper> 

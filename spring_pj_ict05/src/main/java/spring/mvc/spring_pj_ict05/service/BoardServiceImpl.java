@@ -132,6 +132,7 @@ public class BoardServiceImpl implements BoardService{
 		dto.setB_content(request.getParameter("b_content"));
 		dto.setB_password(request.getParameter("b_password"));
 		dto.setB_num(Integer.parseInt(request.getParameter("hidden_b_num")));
+		System.out.println("b_password: " + request.getParameter("b_password"));
 		
 		// 4단계 - 싱글톤 방식으로 DAO 생성, 다형성 적용
 //		BoardDAO dao = BoardDAOImpl.getInstance();
@@ -156,13 +157,12 @@ public class BoardServiceImpl implements BoardService{
 		// 5단계 - 게시글 삭제 처리 후 컨트롤러에서 board_list로 이동
 		dao.deleteBoard(num);
 	}
-	/*
+	
 	// 게시글 작성 처리
 	@Override
-	public int boardInsertAction(HttpServletRequest request, HttpServletResponse response)
+	public int boardInsertAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println(" @@@  BoardServiceImpl   -   boardInsertAction()  @@@");
-		System.out.println(request.getAttribute("sessionID"));
 		
 		BoardDTO dto = new BoardDTO();
 		dto.setB_title(request.getParameter("b_title"));
@@ -180,14 +180,14 @@ public class BoardServiceImpl implements BoardService{
 
 	// 댓글 작성 처리 (4)
 	@Override
-	public void commentAddAction(HttpServletRequest request, HttpServletResponse response)
+	public void commentAddAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println(" @@@  BoardServiceImpl   -   commentAddAction()  @@@");
 		
 		// 3단계 - 화면에서 입력받은 값(jQuery에서 넘긴 값)을 가져오기
 		// CommentDTO 생성 후 입력 값 받아오기
 		BoardCommentDTO dto = new BoardCommentDTO();
-		int b_num = Integer.parseInt(request.getParameter("board_num"))
+		int b_num = Integer.parseInt(request.getParameter("board_num"));
 		dto.setC_board_num(b_num);
 		dto.setC_writer(request.getParameter("writer"));
 		dto.setC_content(request.getParameter("content"));
@@ -202,7 +202,7 @@ public class BoardServiceImpl implements BoardService{
 
 	// 댓글 목록 처리
 	@Override
-	public void commentListAction(HttpServletRequest request, HttpServletResponse response)
+	public void commentListAction(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws ServletException, IOException {
 		System.out.println(" @@@  BoardServiceImpl   -   commentListAction()  @@@");
 		
@@ -216,9 +216,8 @@ public class BoardServiceImpl implements BoardService{
 		List<BoardCommentDTO> list = dao.commentList(board_num);
 		
 		// 6단계 - jsp로 처리결과 전달
-		request.setAttribute("list", list);
+		model.addAttribute("list", list);
 		
 		
 	}
-*/
 }

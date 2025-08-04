@@ -30,20 +30,18 @@ public interface BoardDAO {
 	
 	// 게시글 삭제 처리
 	public void deleteBoard(int num);
-	/*
+	
 	// 게시글 작성 처리
 	public void insertBoard(BoardDTO dto);
 	
 	// 작성 후 작성한 게시글로 이동
 	public int moveRecentBoard(String writer);
-	
 	// 댓글 작성 처리
-	public int insertComment(BoardCommentDTO dto);
+	public void insertComment(BoardCommentDTO dto);
 	
 	// 게시글 옆 댓글 카운트
 	public void commentCount(int b_num);
 	
 	// 댓글 목록 처리
 	public List<BoardCommentDTO> commentList(int board_num);
-	*/
 }
