@@ -97,7 +97,7 @@
 										<td>
 											<div align="right">
 												<input class="inputButton" type="button" value="삭제"
-												onclick="window.location='${path}/ad_product_deleteAction.pd?pdNo=${dto.pdNo}&pageNum=${paging.pageNum}'" >
+												onclick="window.location='${path}/ad_product_deleteAction.pd?pdNo=${dto.pdNo}'" >
 											</div>
 										</td>
 										</tr>

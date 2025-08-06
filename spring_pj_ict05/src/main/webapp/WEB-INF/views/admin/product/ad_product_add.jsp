@@ -9,7 +9,7 @@
 <!-- 반응형 웹 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>글작성페이지</title>
+<title>상품 추가 페이지</title>
 
 <!-- css -->
 <link rel="stylesheet" href="${path}/resources/css/common/header.css">

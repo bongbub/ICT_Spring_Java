@@ -52,21 +52,31 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public ProductDTO productDetail(int pdNo) {
 		System.out.println("ProductDAOImpl - productDetail");
-		return null;
+		
+		ProductDAO dao = sqlSession.getMapper(ProductDAO.class);
+		ProductDTO dto = dao.productDetail(pdNo);
+		
+		return dto;
 	}
 
 	// 상품 수정
 	@Override
 	public int productUpdate(ProductDTO dto) {
 		System.out.println("ProductDAOImpl - productUpdate");
-		return 0;
+		
+//		ProductDAO dao = sqlSession.getMapper(ProductDAO.class);
+//		int updateCnt = dao.productUpdate(dto);
+		int updateCnt = sqlSession.update("spring.mvc.spring_pj_ict05.dao.ProductDAO.productUpdate", dto);
+		
+		return updateCnt;
 	}
 
 	// 상품 삭제
 	@Override
 	public int productDelete(int pdNo) {
 		System.out.println("ProductDAOImpl - productDelete");
-		return 0;
+		int deleteCnt = sqlSession.delete("spring.mvc.spring_pj_ict05.dao.ProductDAO.productDelete", pdNo);
+		return deleteCnt;
 	}
 
 }
