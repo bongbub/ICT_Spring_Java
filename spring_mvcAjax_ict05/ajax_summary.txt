@@ -1,0 +1,415 @@
+[ spring_mvcAjax_ict04 ]
+
+
+- 플젝 생성 spring_ajax_ict05 > com.spring.ajax_ict05> pom.xml에 추가
+<properties>
+	<java-version>11</java-version>
+	<org.springframework-version>5.3.24</org.springframework-version>
+</properties>		
+
+=> 플젝에 엑박이 뜬다.  (Release안 쓰느느거 주의!)
+		
+플젝 통으로 받을경우 주의사항
+
+플젝 우클릭.. properties 
+=> java build path => Libraries 탭> jdk11
+=> Java compiler => java 11
+=> Project Facets => java 11, runtimes : 톰켓9 체크
+
+=> 엑박이 사라진다.
+
+HomeController.java 실행  => Ctrl F11
+http://localhost/ajax_ict05/
+
+Hello world!!
+
+---------------------------------------------------------------------
+
+=> controller 패키지 생성
+   AjaxController.java 생성 및 작성 => jsp/AjaxController.java 참고
+   JSP 소스 가져와서 붙여넣는 방식 
+      
+- simple.do, basic/simple.jsp만 먼저 작성
+
+- simple.jsp 경로 수정 => path 변수로 설정
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<script src="${path}/resources/js/request.js"></script>
+
+
+- resources/data,js 붙여넣기
+
+
+-- news / book 까지 테스트
+
+
+---------------------------------------------------------
+
+- pom.xml에 Mybatis, json 추가  => 4-1) 4-2) 참고
+
+=> JQueryController.java => basic5.jq 
+   : basic5_next.jq => 결과가 모두 null로 나옴   => 4-2) 참고해서 pom.xml에 추가
+
+
+=> JQueryController.java => 검색 search.ja search_next.ja
+   SearchDTO, Service, 
+   
+   
+   - pom.xml에 Mybatis => 4-1) 참고해서 pom.xml에 추가
+   
+   DAO => 경로
+   public List<SearchDTO> searchList(String keyword) {
+		return sqlSession.selectList("com.spring.ajax_ict04.dao.SearchDAO.searchList", keyword);
+   }
+    
+   mapper(DTO경로 주의) 추가 => 경로 수정  jsp_pj_ict04
+   dataSource-config.xml => 계정 수정 jsp_pj_ict04
+   context.xml => resource name="jdbc/jsp_pj_ict04" 존재하는지 확인
+   
+   테이블생성 => search.sql 참조  => mvc_search_tbl 
+   web.xml에 추가 => classpath:/dataSource-config.xml 
+   		<param-value>
+		 		/WEB-INF/spring/root-context.xml
+				classpath:/dataSource-config.xml 
+		</param-value>
+   
+   -------
+ **  Cannot load JDBC driver class 'oracle.jdbc.driver.OracleDriver'] 오류시
+   
+   그래도 안되면 pom.xml에 추가
+
+	<!-- jdbc 오류 나신분들만 추가  -->
+		<dependency> <groupId>com.oracle.database.jdbc</groupId>
+         <artifactId>ojdbc6</artifactId> 
+         <version>11.2.0.4</version> 
+       </dependency>
+      
+	   <dependency> 
+	         <groupId>commons-dbcp</groupId>
+	         <artifactId>commons-dbcp</artifactId>
+	         <version>1.4</version>
+	    </dependency>
+
+
+=> 대문자 JAVA 로 검색
+JAVA
+JAVA의 정석
+JAVA 프로그래밍 입문
+
+--------------------------------------------------------
+
+0)- 플젝명 우클릭 > properties >
+   Java Build Path : JDK-11
+   Java Compiler : 11
+   Project Facets : 11
+   
+  - pom.xml
+   <java-version>11</java-version>
+  
+  - 그래도 오류시 플젝 우클릭 > Maven - Update Project
+
+1)
+-- JDBC 오류
+
+java.sql.SQLException: Cannot load JDBC driver class 'oracle.jdbc.driver.OracleDriver'
+==> C:\Program Files\Java\jre1.8.0_241\lib\ext\ojdbc6.jar 붙여넣는다.
+
+
+그래도 안되면 pom.xml에 추가
+
+	<!-- jdbc 오류 나신분들만 추가  -->
+		<dependency> <groupId>com.oracle.database.jdbc</groupId>
+         <artifactId>ojdbc6</artifactId> 
+         <version>11.2.0.4</version> 
+       </dependency>
+      
+	   <dependency> 
+	         <groupId>commons-dbcp</groupId>
+	         <artifactId>commons-dbcp</artifactId>
+	         <version>1.4</version>
+	    </dependency>
+	    
+2) web.xml
+	dataSource-config.xml 먼저 만들고
+	 web.xml에 추가 =>  classpath:/dataSource-config.xml  <!-- 추가해야 작동  -->
+
+3) 	mapper 만들기 전이면 dataSource-config.xml의 mapper 경로 주석처리
+4)  dataSource-config.xml의 context.xml의 name 연결
+    <property name="jndiName" value="java:comp/env/jdbc/jsp_pj_ict04" />  
+-----------------------------------------
+1. 테이블 생성
+JSP_PJ_ict04 계정에서 작업
+
+-- 1) search_tbl 테이블 생성  => JSP_PJ_ict04/oracle
+
+ DROP TABLE mvc_keyword_tbl;
+ CREATE TABLE mvc_keyword_tbl(    
+    keyword      VARCHAR2(500)    
+ );
+ 
+ INSERT INTO mvc_keyword_tbl
+  VALUES ('자바프로그래밍 입문');
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('자바의 정석');
+  
+   INSERT INTO search_tbl
+  VALUES ('자바의 기술');
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('자바 웹을 다루는 기술');
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('자바스크립트 코딩의 기술');
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('자바 최적화');
+  
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('파이썬으로 데이터 주무르기');
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('파이썬 라이브러리를 활용한 머신러닝');
+  
+   INSERT INTO mvc_keyword_tbl
+  VALUES ('JSP 프로그래밍의 이해와 응용');
+  
+    INSERT INTO mvc_keyword_tbl
+  VALUES ('JSP 프로그래밍(초보자를 위한)');
+  
+ COMMIT; 
+ 
+ 
+ SELECT * FROM mvc_keyword_tbl
+  WHERE keyword LIKE '%JSP%';
+  
+  
+
+4) context.xml 커넥션풀 추가
+
+ <Resource author="Container" 
+     driverClassName="oracle.jdbc.driver.OracleDriver" 
+     maxActive="5" maxWait="1000" 
+     name="jdbc/jsp_pj_ict04" 
+     password="tiger"
+     type="javax.sql.DataSource" 
+     url="jdbc:oracle:thin:@localhost:1521:xe" 
+     username="scott"/>
+     
+-----------------------------------------------------     
+3. 플젝 생성 
+
+: NEW > Spring Legacy Project > 프로젝트명 입력 > Spring MVC Project 선택 > 패키지(3레벨이상) 입력 : com.spring.ajax_ict04
+  => 패키지(3레벨이상) 입력해야 하며, 3레벨이 컨텍스트명(mvc_mybatis)이 된다. 
+  
+=> 테스트 => http://localhost/
+	home.jsp 실행
+	Hello world!
+
+1) 자바 설정
+	
+	- project 우클릭 > properties > Project Facets > java를 1.11로 변경
+	Runtimes 탭에서 Apache Tomcat v8.5 클릭 > Apply 버튼
+	
+	- project 우클릭 > properties > Java Build Path > Library 탭 > jre System library 선택후 Edit 선택 / 또는 jre System library 더블클릭
+	> 세번째 workspace default JRE(jre1.11_xxx) 선택
+	
+	- java compiler - 1.11버전 확인
+	
+2) pom.xml에 버전 반영
+	<properties>
+		<java-version>1.11</java-version>
+		<org.springframework-version>5.3.24</org.springframework-version>		
+		
+3) 실행 : 
+	http://localhost/ajax_ict04/
+	=> http://localhost/세번째 패키지명/
+	
+	
+4-1) 	pom.xml에 Mybatis.jar 파일 설정
+
+   mvnrepository.com에서 3개의 라이브러리를 복사후 pom.xml에 등록하면
+   maven 중앙 repository(저장소)로부터 다운로드 후 빌드되어 Maven Dependencies(.m2.repository)에 저장된다.
+   
+ 	<!-- Mybatis 설정 시작 -->
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis-spring</artifactId>
+	    <version>1.3.2</version>
+	</dependency>
+		
+	<dependency>
+	    <groupId>org.mybatis</groupId>
+	    <artifactId>mybatis</artifactId>
+	    <version>3.4.6</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>5.3.24</version>
+	</dependency>
+	<!-- Mybatis 설정 끝 -->
+
+4-2) 	pom.xml에 json-simple 추가
+
+	<!-- JSON Converter Start -->
+	<!-- https://mvnrepository.com에서 json-simple 검색 -> JSON.simple 선택 -->
+	<dependency>
+	    <groupId>com.googlecode.json-simple</groupId>
+	    <artifactId>json-simple</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com에서 Jackson Databind 검색 -> 2.14.1 선택 -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>2.14.1</version>
+	</dependency>
+	<!-- JSON Converter End -->
+
+	<!-- jdbc 오류 나신분들만 추가  -->
+	<dependency> <groupId>com.oracle.database.jdbc</groupId>
+     <artifactId>ojdbc6</artifactId> 
+     <version>11.2.0.4</version> 
+   </dependency>
+  
+   <dependency> 
+         <groupId>commons-dbcp</groupId>
+         <artifactId>commons-dbcp</artifactId>
+         <version>1.4</version>
+    </dependency>
+
+	
+5) 패키지 생성
+com.spring.ajax_ict04.controller
+com.spring.ajax_ict04.dto
+com.spring.majax_ict04.service
+com.spring.ajax_ict04.dao
+
+-----------------------------------------------
+
+
+
+4. dataSource-config.xml 작성
+
+4-1).	src/main/resources/ 우클릭 > New > Spring Bean Configuration File > dataSource-config.xml 
+	<!-- Mybatis 설정 시작 -->
+	<!-- 컨넥션풀 -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/mybatis_ict04" />   <!-- 컨넥션 풀 lookup -->
+		<property name="resourceRef" value="true" />
+	</bean>
+	
+	<!-- Mybatis 파일 위치 지정, 컨넥션풀 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath:mappers/**/*.xml" />  
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	<!-- Mybatis 설정 종료 -->
+	
+	
+4-2) 마이바티스 매퍼 파일 작성
+	
+		=> 1. 한두줄의 자바코드로 DB연동을 처리한다
+		   2. SQL 명령어를 자바 코드에서 분리하여 XML 파일에 Mapper로 따로 관리
+		   
+	   - src/main/resources/에서 폴더 생성 : mappers 폴더 생성
+	   - 그 폴더 우클릭 > new > other > xml file > sqlMapper1.xml 생성
+	   -  sqlMapper1.xml에 추가
+	
+	
+		- SearchDAO 작성후 namespace에 추가
+		
+	<?xml version="1.0" encoding="UTF-8"?>
+
+	<!DOCTYPE mapper
+	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	  
+	 <mapper namespace="xxxx">  <!-- namespace="패키지명.인터페이스" -->
+	
+	 </mapper> 
+	********
+	
+	
+4-3) AjaxController
+	@Controller
+	public class AjaxController {
+	
+	@Autowired
+		SearchServiceImpl service;
+	}
+	
+4-4)
+	@Service
+	public class SearchServiceImpl  implements SearchService {
+		
+		@Autowired
+		SearchDAOImpl dao;
+	
+		@Override
+		public void searchList(HttpServletRequest req, HttpServletResponse res) {
+			
+		}
+	}	
+	
+4-5) DAOImpl에 sqlSession 추가
+	
+	// Mybatis jar 파일들이 pom.xml에 등록되어 있어야 SqlSession이 import 가능
+	// dataSource-config.xml에 bean id="sqlSession"로 설정되어 있어야 함
+	
+	@Autowired
+	SqlSession sqlSession;   
+		
+	
+	실행 : http://localhost/ajax_ict04/
+	
+	Hello world!
+    
+
+	
+4-6) web.xml에 추가  ==> ********** 주의사항  *********
+
+    D:\Dev\workspace\spring_mvcMybatis\src\main\webapp\WEB-INF\web.xml
+     
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml
+					classpath:/dataSource-config.xml  <!-- 생성한 xml을 추가해야 작동  -->
+		</param-value>
+	</context-param>
+	
+	----------------------------
+	
+	<!-- 한글 안깨지게 처리 시작 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>	
+		
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 한글 안깨지게 처리 종료 -->
+	
+4-7) jsp소스를 spring의 views 폴더에 붙여넣는다.
+     jsp resources 폴더내의 데이터를 src/main/webapp/resources 폴더에 붙여넣는다.
+     
+     <script src="/ajax_ict04/resources/js/request.js"></script>를 수정

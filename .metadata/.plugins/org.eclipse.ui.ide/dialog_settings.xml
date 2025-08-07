@@ -114,6 +114,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\DEV05\workspace_spring_ict05\jsp_mvcAjax_ict05"/>
 			<item value="D:\DEV05\workspace\jsp_pj_ict05_spring"/>
 		</list>
 	</section>
