@@ -61,9 +61,9 @@ Hello world!!
 		return sqlSession.selectList("com.spring.ajax_ict04.dao.SearchDAO.searchList", keyword);
    }
     
-   mapper(DTO경로 주의) 추가 => 경로 수정  jsp_pj_ict04
-   dataSource-config.xml => 계정 수정 jsp_pj_ict04
-   context.xml => resource name="jdbc/jsp_pj_ict04" 존재하는지 확인
+   mapper(DTO경로 주의) 추가 => 경로 수정  jsp_pj_ict05
+   dataSource-config.xml => 계정 수정 jsp_pj_ict05
+   context.xml => resource name="jdbc/jsp_pj_ict05" 존재하는지 확인
    
    테이블생성 => search.sql 참조  => mvc_search_tbl 
    web.xml에 추가 => classpath:/dataSource-config.xml 
@@ -298,7 +298,7 @@ com.spring.ajax_ict04.dao
 	<!-- Mybatis 설정 시작 -->
 	<!-- 컨넥션풀 -->
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="java:comp/env/jdbc/mybatis_ict04" />   <!-- 컨넥션 풀 lookup -->
+		<property name="jndiName" value="java:comp/env/jdbc/jsp_pj_ict05" />   <!-- 컨넥션 풀 lookup -->
 		<property name="resourceRef" value="true" />
 	</bean>
 	
@@ -368,7 +368,7 @@ com.spring.ajax_ict04.dao
 	SqlSession sqlSession;   
 		
 	
-	실행 : http://localhost/ajax_ict04/
+	실행 : http://localhost/ajax_ict05/
 	
 	Hello world!
     

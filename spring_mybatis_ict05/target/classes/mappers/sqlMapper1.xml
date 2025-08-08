@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mvc_mybatis.ch01.dao.UserDAO_ch01">  <!-- namespace="패키지명.인터페이스" -->
+	
+	<!-- 일대일 매핑 : association -->
+	<!-- 방법1. association - resultMap => join문 -->
+	
+	<!-- 1-1. user정보, address 정보 -->
+	<select id="getAddressInfo_1" resultMap="userMap1">
+		SELECT u.user_id, 
+		       u.user_name, 
+		       u.reg_date,  
+		       a.user_address
+		  FROM mvc_user_tbl u
+		     , mvc_address_tbl a
+		 WHERE u.user_id = a.user_id
+		 ORDER BY u.user_id ASC
+	</select>
+	
+	<!-- 1-2. 매핑 -->
+	<resultMap id="userMap1" type="com.spring.mvc_mybatis.ch01.dto.UserDTO">
+		<id 	property="userId" 		column="user_id"/>		<!-- PK -->
+		<result property="userName"		column="user_name" />
+		<result property="regDate"		column="reg_date" />
+		<association property="addressDTO"	column="user_id"  resultMap="getAddress"/>	<!-- FK -->
+		
+	</resultMap>
+	<!-- 1-3. address 정보를 가져오기 -->
+	<resultMap id="getAddress" type="com.spring.mvc_mybatis.ch01.dto.AddressDTO">
+		<result property="userAddress"		column="user_address" />
+	</resultMap>
+	
+	<!-- 방법2. association - select 문장 분리 -->
+	<!-- 2-1. user 정보 -->
+	<select id="getAddressInfo_2" resultMap="userMap2">
+		SELECT user_id, 
+		       user_name, 
+		       reg_date
+		  FROM mvc_user_tbl
+	</select>
+	
+	<!-- 2-2. 매핑 -->
+	<resultMap id="userMap2" type="com.spring.mvc_mybatis.ch01.dto.UserDTO">
+		<id 	property="userId" 		column="user_id"/>		<!-- PK -->
+		<result property="userName"		column="user_name" />
+		<result property="regDate"		column="reg_date" />
+		<association property="addressDTO"	column="user_id"  select="getAddress2"/>	<!-- FK -->
+	</resultMap>
+	<!-- 2-3. aaddress 정보 따로 가져오기 -->
+	<select id="getAddress2" resultType="com.spring.mvc_mybatis.ch01.dto.AddressDTO">
+		SELECT user_address userAddress
+		  FROM mvc_address_tbl
+		  WHERE user_id = #{user_id}		<!-- WHERE fk = pk -->
+	</select>
+ </mapper> 

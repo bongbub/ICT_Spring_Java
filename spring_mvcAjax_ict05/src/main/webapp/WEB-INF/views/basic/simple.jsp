@@ -15,6 +15,7 @@
 		//alert("show() 실행");
 		// function sendRequest(callback, url, method, params) {
 		sendRequest(simple_callback, "${path}/simple.do", "post", "");	// 함수 명 뒤 괄호를 붙이지 않는다
+		// simple.do로 가. 갔다가 simple_callback으로 돌아와
 	}
 		
 	// 콜백함수 - 결과처리
@@ -24,6 +25,7 @@
 		
 		let result = document.getElementById("simple_result");
 		
+		// 만약 통신상태가 '정상'이라면
 		if(httpRequest.readyState == 4){ 	// 4: ccompleted => 전체 데이터 취득 완료
 			if(httpRequest.status == 200){		// 200 : 정상종료		
 				/* result.innerHTML = "정상종료"; */

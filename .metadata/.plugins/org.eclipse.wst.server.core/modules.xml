@@ -5,4 +5,5 @@
   <module moduleId="org.eclipse.jst.jee.server:spring_mvcAjax_ict05" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:spring_aop_ict05" serverId="Tomcat v9.0 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:spring_basic_ict05" serverId="Tomcat v9.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:spring_mybatis_ict05" serverId="Tomcat v9.0 Server at localhost"/>
 </modules>

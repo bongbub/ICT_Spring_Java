@@ -30,7 +30,7 @@ public class SearchServiceImpl implements SearchService{
 		String strText = request.getParameter("keyword");
 		
 		// 4단계.  싱글톤, 다형성 적용
-		SearchDAO dao = SearchDAOImpl.getInstance();
+		// SearchDAO dao = SearchDAOImpl.getInstance();
 		
 		// 5단계. 검색처리
 		List<SearchDTO> list = dao.searchList(strText);

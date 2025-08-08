@@ -37,4 +37,16 @@
     -->
     <Resource author="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="8" maxWait="1000" name="jdbc/jsp_pj_ict05" password="tiger" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521/xe" username="jsp_pj_ict05"/>
     
+     <Resource 
+	    author="Container" 
+	    driverClassName="oracle.jdbc.driver.OracleDriver" 
+	    maxActive="7" 
+	    maxWait="1000" 
+	    name="jdbc/mybatis_ict05" 
+	    username="mybatis_ict05"
+	    password="tiger" 
+	    type="javax.sql.DataSource" 
+	    url="jdbc:oracle:thin:@localhost:1521:xe" 
+	    /> 
+    
 </Context>

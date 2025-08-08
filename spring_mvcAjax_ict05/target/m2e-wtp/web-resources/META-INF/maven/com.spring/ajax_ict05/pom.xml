@@ -108,7 +108,68 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+		<!-- JSON Converter Start -->
+		<!-- https://mvnrepository.com에서 json-simple 검색 -> JSON.simple 선택 -->
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com에서 Jackson Databind 검색 -> 2.14.1 선택 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.1</version>
+		</dependency>
+		<!-- JSON Converter End -->
+		
+		<!-- Mybatis 설정 시작 -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+			
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>3.4.6</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>5.3.24</version>
+		</dependency>
+		<!-- Mybatis 설정 끝 -->
+		
+		<!-- JDBC 오류날때 추가 -->
+		<dependency> <groupId>com.oracle.database.jdbc</groupId>
+         <artifactId>ojdbc6</artifactId> 
+         <version>11.2.0.4</version> 
+       </dependency>
+      
+	   <dependency> 
+	         <groupId>commons-dbcp</groupId>
+	         <artifactId>commons-dbcp</artifactId>
+	         <version>1.4</version>
+	    </dependency>
+		
+		<!-- jdbc 오류 나신분들만 추가  -->
+		<dependency> <groupId>com.oracle.database.jdbc</groupId>
+        	<artifactId>ojdbc6</artifactId> 
+        	<version>11.2.0.4</version> 
+      	</dependency>
+      
+	  	<dependency> 
+	    	<groupId>commons-dbcp</groupId>
+	        <artifactId>commons-dbcp</artifactId>
+	        <version>1.4</version>
+	    </dependency>
 	
+		
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
