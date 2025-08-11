@@ -100,6 +100,8 @@ COMMIT;
 SELECT * FROM mvc_board_tbl;
 
 ----------------------------------------------------------------------------------
+
+-- user + address 정보 ==> 1:1의 관계
 SELECT u.user_id, 
        u.user_name, 
        u.reg_date,  
@@ -122,7 +124,8 @@ UPDATE  mvc_board_tbl
  COMMIT;
  ROLLBACK;
  
--- user, board 
+--------------------------------------------
+-- user, board   ==> 1:N의 관계
  SELECT u.user_id, 
        u.user_name, 
        u.reg_date,  
@@ -133,6 +136,11 @@ UPDATE  mvc_board_tbl
      , mvc_board_tbl b
  WHERE u.user_id = b.user_id
  ORDER BY u.user_id ASC;
+
+
+----------------------------------
+
+-- search
 
 SELECT u.user_id, 
        u.user_name, 
@@ -147,4 +155,7 @@ SELECT u.user_id,
    AND b.board_content LIKE '%반복문%'
  ORDER BY u.user_id ASC;
 
+
+UPDATE mvc_user_tbl
+   SET 
 

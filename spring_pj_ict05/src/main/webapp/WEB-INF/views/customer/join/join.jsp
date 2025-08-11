@@ -22,6 +22,48 @@
 <!-- defer : html을 다 읽은 후에 자바 스크립트를 실행해라 -> 페이지가 모두 로딩 된 후 외부 스크립트 실행 -->
 <script src="${path}/resources/js/common/main.js" defer></script>
 <script src="${path}/resources/js/customer/join.js" defer></script>
+<!-- daum 주소 API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+	function addrclick(){
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 각 주소의 노출 규칙에 따라 주소 조합
+	            // 내려오는 변수 값이 없는 경우 공백('')을 가지므로, 이를 참고하며 분기
+	            var roadAddr = data.roadAddress; 	// 도로명 주소 변수
+                var extraRoadAddr = ''; 			// 참고 항목 변수
+	            
+	            
+            	// 법정동명 추가 (동/로/가)
+            	if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+            		extraRoadAddr += data.bname;
+                }
+            	// 건물명이 있고 공동주택일 경우
+            	if(data.buildingName !== '' && data.apartment === 'Y'){
+            		extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+       			// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                	extraRoadAddr = ' (' + extraRoadAddr + ')';
+                } 
+       			
+             	// 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('user_zipcode').value = data.zonecode;
+                document.getElementById("user_addr1").value = roadAddr + "(" + data.jibunAddress + ")";
+                document.getElementById("user_addr2").focus();
+                
+                
+             	/* // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                if(roadAddr !== ''){
+                    document.getElementById("user_addr3").value = extraRoadAddr;
+                } else {
+                    document.getElementById("user_addr3").value = '';
+                } */
+	        }
+	    }).open();
+	}
+	
+</script>
 </head>
 <body>
 	<div class="wrap">
@@ -82,7 +124,14 @@
 									<tr>
 										<th> * 주소 </th>
 										<td>
-											<input type="text" class="input" name="user_address" size="50" placeholder="주소 작성" required>
+											<input type="text" id ="user_zipcode" class="addr_input" name="user_address1" size="10" placeholder="우편번호" required>
+											<input type="button" onclick="addrclick()" value="우편번호 찾기"><br>
+											<input type="text" class="input" id="user_addr1" name ="user_address2" placeholder="주소"><br>
+											<input type="text" class="input" id="user_addr2"name ="user_address3"  placeholder="상세주소" required>
+											
+											<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+											<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+											</div>
 										</td>
 									</tr>
 									<tr>

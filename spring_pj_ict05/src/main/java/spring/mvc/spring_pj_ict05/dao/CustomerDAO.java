@@ -20,7 +20,7 @@ public interface CustomerDAO {
 	public int deleteCustomer(String strId);
 	
 	// 상세페이지 조회
-	public CustomerDTO getCustomerDetail(String strID);
+	public CustomerDTO getCustomerDetail(String strId);
 	
 	// 회원정보 수정처리
 	public int updateCustomer(CustomerDTO dto);

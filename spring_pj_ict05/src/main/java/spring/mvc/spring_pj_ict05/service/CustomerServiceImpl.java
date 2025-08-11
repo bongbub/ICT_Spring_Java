@@ -61,7 +61,18 @@ public class CustomerServiceImpl implements CustomerService{
 		dto.setUser_password(request.getParameter("user_password"));
 		dto.setUser_name(request.getParameter("user_name"));
 		dto.setUser_birthday(Date.valueOf(request.getParameter("user_birthday")));
-		dto.setUser_address(request.getParameter("user_address"));
+//		dto.setUser_address(request.getParameter("user_address"));
+		
+		String addr1 = request.getParameter("user_address1");	// zipcode
+		String addr2 = request.getParameter("user_address2");	// 도로명
+		String addr3 = request.getParameter("user_address3");	// 상세줏호
+		String addr = addr1 + addr2 + addr3;
+		dto.setUser_address(addr);
+		System.out.println("최종주소 : " + addr1);
+		System.out.println("최종주소 : " + addr2);
+		System.out.println("최종주소 : " + addr3);
+		System.out.println("최종주소 : " + addr);
+		
 		
 		// hp는 필수가 아니므로 null값이 아닐때만 받아온다 (010 1234 1234)
 		String hp = "";
@@ -95,7 +106,6 @@ public class CustomerServiceImpl implements CustomerService{
 		
 		// 6단계. JSP로 처리 결과를 전달
 		model.addAttribute("insertCnt", insertCnt);
-		
 		
 	}
 	
@@ -137,20 +147,20 @@ public class CustomerServiceImpl implements CustomerService{
 			throws ServletException, IOException {
 		System.out.println("CustomerServiceImpl - deleteCustomerAction()");
 		
-		String strID = (String)request.getSession().getAttribute("sessionID");
+		String strId = (String)request.getSession().getAttribute("sessionID");
 		String strPwd = request.getParameter("user_password");
 		
 //		CustomerDAO dao = CustomerDAOImpl.getInstance();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("strID", strID);
+		map.put("strId", strId);
 		map.put("strPwd", strPwd);
 		
 		// 아이디&패스워드 인증
 		int selectCnt = dao.idPasswordChk(map);
 		int deleteCnt = 0;
 		if(selectCnt == 1) {
-			deleteCnt = dao.deleteCustomer(strID);	
+			deleteCnt = dao.deleteCustomer(strId);	
 			System.out.println(deleteCnt);
 			if(deleteCnt == 1) {	// 회원이 삭제 되었을 때
 				// 세션삭제
@@ -169,19 +179,19 @@ public class CustomerServiceImpl implements CustomerService{
 			throws ServletException, IOException {
 		System.out.println("CustomerServiceImpl - modifyDetailAction()");
 		
-		String strID = (String)request.getSession().getAttribute("sessionID");
+		String strId = (String)request.getSession().getAttribute("sessionID");
 		String strPwd = request.getParameter("user_password");
 		
 //		CustomerDAO dao = CustomerDAOImpl.getInstance();
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("strId", strID);
+		map.put("strId", strId);
 		map.put("strPwd", strPwd);
 		int selectCnt = dao.idPasswordChk(map);
 		
 		CustomerDTO dto =  null;
 		if(selectCnt == 1) {
-			dto = dao.getCustomerDetail(strID);
+			dto = dao.getCustomerDetail(strId);
 		}
 		System.out.println(selectCnt);
 		model.addAttribute("selectCnt", selectCnt);

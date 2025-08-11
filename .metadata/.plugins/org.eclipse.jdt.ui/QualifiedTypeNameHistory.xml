@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="spring.mvc.basic_ict05.ch10.Speaker"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
-    <fullyQualifiedTypeName name="javax.annotation.Resource"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dao.CustomerDAO"/>
-    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dao.CustomerDAOImpl"/>
-    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.service.CustomerServiceImpl"/>
-    <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
-    <fullyQualifiedTypeName name="java.io.IOError"/>
-    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dto.CustomerDTO"/>
-    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.service.BoardService"/>
     <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dao.BoardDAO"/>
     <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dto.BoardDTO"/>
     <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dto.BoardCommentDTO"/>
@@ -46,11 +35,7 @@
     <fullyQualifiedTypeName name="java.lang.System.Logger"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch01.service.UserService_ch01"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch01.dao.UserDAO_ch01"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch01.service.UserServiceImpl_ch01"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
@@ -58,6 +43,21 @@
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch01.dto.UserDTO"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch02.dao.UserDAO_ch01"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch02.service.UserService_ch2"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch02.dao.UserDAO_ch02"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch02.service.UserServiceImpl_ch02"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch02.dto.BoardDTO_2"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch02.dto.UserDTO_2"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch03.service.UserServiceImpl_ch03"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch03.dao.UserDAO_ch03"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch03.dto.BoardDTO_3"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch03.dto.UserDTO_3"/>
+    <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch03.dto.SearchDTO_3"/>
 </qualifiedTypeNameHistroy>

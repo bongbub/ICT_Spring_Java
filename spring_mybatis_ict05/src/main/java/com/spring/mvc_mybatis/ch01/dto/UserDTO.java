@@ -2,7 +2,7 @@ package com.spring.mvc_mybatis.ch01.dto;
 
 import java.sql.Date;
 
-// 1:1 => UserDTO(부모테이블) : AddressDAO("자식테이블") => user 1명이 주소 1개를 갖고 있다. (1:1 관계)
+// 1:1 => UserDTO(부모테이블) : AddressDTO("자식테이블") => user 1명이 주소 1개를 갖고 있다. (1:1 관계)
 public class UserDTO {
 
 	// 멤버변수

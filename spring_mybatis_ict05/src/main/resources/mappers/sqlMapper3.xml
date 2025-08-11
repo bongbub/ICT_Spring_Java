@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mvc_mybatis.ch03.dao.UserDAO_ch03">  <!-- namespace="패키지명.인터페이스" -->
+	
+	<!-- 1. 동적 SQL -->
+	<!-- 작성자(john) 글제목(공백) 글내용(반복문)인 것을 검색 -->
+	<select id="getSearchInfo_1" parameterType="com.spring.mvc_mybatis.ch03.dto.SearchDTO_3" resultMap="userMap">
+		SELECT u.user_id, 
+		       u.user_name, 
+		       u.reg_date,  
+		       b.board_num,
+		       b.board_title,
+		       b.board_content
+		  FROM mvc_user_tbl u
+		     , mvc_board_tbl b
+		 WHERE u.user_id = b.user_id
+		   AND u.user_name = #{userName}		<!-- searchDTO_3에 있는 userName -->
+		   <if test="boardDTO != null and !boardDTO.boardTitle.isEmpty()"> <!-- DTO가 null도 아니면서, title이 비어있지 않으면 (=타이틀이 있으면) -->
+		   		AND b.board_title LIKE '%' || #{boardDTO.boardTitle} || '%'	
+		   </if>
+		   <if test="boardDTO != null and boardDTO.boardContent != null"> <!-- DTO가 null도 아니면서, Content가 비어있지 않으면 (=내용이 있으면) -->
+		   		AND b.board_content LIKE '%' || #{boardDTO.boardContent} || '%'
+		   </if>
+		 ORDER BY u.user_id ASC
+	</select>
+	<resultMap id="userMap" type="com.spring.mvc_mybatis.ch03.dto.UserDTO_3">
+		<id 	property="userId"  		column="user_id"/>
+		<result property ="userName" 	column="user_name"/>
+		<result property ="regDate" 	column="reg_date"/>
+		<collection property ="boardDTO" 	columnPrefix="board_" ofType="com.spring.mvc_mybatis.ch03.dto.BoardDTO_3" >		<!-- List 값이므로 collection -->
+			<result property ="boardNum" 	column="num"/>	<!-- 위의 column에서, 겹치는 'board_'를 prefix(접두어)로 줌 -->
+			<result property="boardTitle" column="title"/>
+			<result property="boardContent" column="content"/>
+		</collection>
+	</resultMap>
+	
+	
+	<!-- 2. 동적 SQL -->
+	<!-- 작성자(john) 글제목(null) 글내용(반복문)인 것을 검색 -->
+	<select id="getSearchInfo_2" parameterType="com.spring.mvc_mybatis.ch03.dto.SearchDTO_3" resultMap="userMap">
+		SELECT u.user_id, 
+		       u.user_name, 
+		       u.reg_date,  
+		       b.board_num,
+		       b.board_title,
+		       b.board_content
+		  FROM mvc_user_tbl u
+		     , mvc_board_tbl b
+		 WHERE u.user_id = b.user_id
+		   AND u.user_name = #{userName}		<!-- searchDTO_3에 있는 userName -->
+		   <if test="boardDTO != null and boardDTO.boardTitle != null"> <!-- DTO가 null도 아니면서, title이 값이 없을 때. -->
+		   		AND b.board_title LIKE '%' || #{boardDTO.boardTitle} || '%'	
+		   </if>
+		   <if test="boardDTO != null and boardDTO.boardContent != null"> <!-- DTO가 null도 아니면서, Content가 비어있지 않으면 (=내용이 있으면) -->
+		   		AND b.board_content LIKE '%' || #{boardDTO.boardContent} || '%'
+		   </if>
+		 ORDER BY u.user_id ASC
+	</select>
+	
+	
+	
+	<!-- 3. 동적 SQL -->
+	<!-- 작성자(null) 글제목(null) 글내용 LIKE '%활용%' 인 것을 검색 -->
+	<select id="getSearchInfo_3" parameterType="com.spring.mvc_mybatis.ch03.dto.SearchDTO_3" resultMap="userMap">
+		SELECT u.user_id, 
+		       u.user_name, 
+		       u.reg_date,  
+		       b.board_num,
+		       b.board_title,
+		       b.board_content
+		  FROM mvc_user_tbl u
+		     , mvc_board_tbl b
+		 WHERE u.user_id = b.user_id
+		 	<if test="userName != null">
+		   AND u.user_name = #{userName}		<!-- searchDTO_3에 있는 userName -->
+		 	</if> 
+		   <if test="boardDTO != null and boardDTO.boardTitle != null"> <!-- DTO가 null도 아니면서, title이 값이 없을 때. -->
+		   		AND b.board_title LIKE '%' || #{boardDTO.boardTitle} || '%'	
+		   </if>
+		   <if test="boardDTO != null and boardDTO.boardContent != null"> <!-- DTO가 null도 아니면서, Content가 비어있지 않으면 (=내용이 있으면) -->
+		   		AND b.board_content LIKE '%' || #{boardDTO.boardContent} || '%'
+		   </if>
+		 ORDER BY u.user_id ASC
+	</select>
+	
+	
+	
+	
+	<!-- 4. 동적 SQL -->
+	<!-- 작성자(null) 글제목(null) 글내용 LIKE '%활용%' 인 것을 검색 -->
+	<update id="updateUser" parameterType="com.spring.mvc_mybatis.ch03.dto.UserDTO_3">
+		UPDATE mvc_user_tbl
+			<set>
+				<if test="userName != null">
+					user_name = #{userName},
+				</if>
+				<if test="regDate != null">
+					reg_date = #{regDate},
+				</if>
+			</set>
+			WHERE user_id = #{userId}
+	</update>
+	
+	
+	
+	<!-- 5. 동적 SQL -->
+	<!-- 작성자(null) 글제목(null) 글내용 LIKE '%활용%' 인 것을 검색 -->
+	<select id="getUserSearchInfo" parameterType="String" resultType="com.spring.mvc_mybatis.ch03.dto.UserDTO_3">
+		SELECT user_id userId, 
+		       user_name userName, 
+		       reg_date regDate
+		  FROM mvc_user_tbl
+		 	<if test="_parameter != null and _parameter.equals('john')">		<!-- 파라미터가 null이 아니면서, john이면? -->
+		   WHERE user_name = #{userName}
+		   </if>
+	</select>
+	
+ </mapper> 
+ 
+ 

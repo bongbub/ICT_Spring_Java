@@ -33,13 +33,13 @@
 		<c:if test="${insertCnt == 1 }">
 			<script type="text/javascript">
 				alert("회원가입 성공!");
-				window.location="/jsp_pj_ict05/login.do";
+				window.location="${path}/login.do";
 			</script>
 		</c:if>
 		<c:if test="${insertCnt != 1 }">
 			<script type="text/javascript">
 				alert("회원가입 실패");
-				window.location = "/jsp_pj_ict05/join.do";
+				window.location = "${path}/join.do";
 			</script>
 		</c:if>
 		<!-- 컨텐츠 끝 -->

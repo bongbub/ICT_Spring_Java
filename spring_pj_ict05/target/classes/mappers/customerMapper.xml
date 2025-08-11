@@ -28,12 +28,12 @@
 	
 	<!-- 회원정보 인증처리 및 탈퇴처리  -->
 	<delete id="deleteCustomer" parameterType="String">
-		DELETE FROM mvc_customer_tbl WHERE user_id = #{strID}
+		DELETE FROM mvc_customer_tbl WHERE user_id = #{strId}
 	</delete>
 	
 	<!-- 상세페이지 조회 -->
 	<select id="getCustomerDetail" parameterType="String" resultType="spring.mvc.spring_pj_ict05.dto.CustomerDTO">
-		SELECT * FROM mvc_customer_tbl WHERE user_id = #{strID}
+		SELECT * FROM mvc_customer_tbl WHERE user_id = #{strId}
 	</select>
 	
 	<!--  -->

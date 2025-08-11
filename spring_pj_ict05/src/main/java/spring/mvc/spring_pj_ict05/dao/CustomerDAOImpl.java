@@ -1,14 +1,7 @@
 package spring.mvc.spring_pj_ict05.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Map;
 
-import javax.naming.InitialContext;		// 주의!
-import javax.naming.NamingException;
-import javax.sql.DataSource;			// 주의!
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,18 +55,18 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	// 회원정보 인증처리 및 탈퇴처리 
 	@Override
-	public int deleteCustomer(String strID) {
+	public int deleteCustomer(String strId) {
 		System.out.println("CustomerDAOImpl - deleteCustomer() ");
 		
-		int deleteCnt = sqlSession.delete("spring.mvc.spring_pj_ict05.dao.CustomerDAO.deleteCustomer", strID);
+		int deleteCnt = sqlSession.delete("spring.mvc.spring_pj_ict05.dao.CustomerDAO.deleteCustomer", strId);
 		
 		return deleteCnt;
 	}
 
 	// 상세페이지 조회
 	@Override
-	public CustomerDTO getCustomerDetail(String strID) {
-		CustomerDTO dto = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.CustomerDAO.getCustomerDetail", strID);
+	public CustomerDTO getCustomerDetail(String strId) {
+		CustomerDTO dto = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.CustomerDAO.getCustomerDetail", strId);
 		return dto;
 	}
 
