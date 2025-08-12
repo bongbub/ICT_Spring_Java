@@ -36,27 +36,37 @@
 				<!-- 상단 중앙 2 시작 -->
 				<div id="section2">
 					<div id="s2_inner">
-						<div class="join">
+						<div class="login">
 							<form name="loginform" action="loginAction.do" method="post"
 								onsubmit="return loginCheck()">
 								
 								<table>
 									<tr>
-										<th>  아이디 </th>
-										<td>
-											<input type="text" class="input" name="user_id" size="20" placeholder="공백없이 20자 이내" required autofocus>
+										<td> 아이디</td>
+									</tr>
+									<tr>
+										<td id="bar">
+											<label>
+												<input type="text" class="input" name="user_id" size="20" 
+												placeholder="아이디를 입력해주세요" required autofocus>
+												<i></i>
+											</label>
 										</td>
 									</tr>
 									<tr>
-										<th>  비밀번호 </th>
-										<td>
-											<input type="password" class="input" name="user_password" size="20" placeholder="공백없이 20자 이내" required>
+										<td> 비밀번호</td>
+									</tr>
+									<tr>
+										<td id="bar">
+											<input type="password" class="input" name="user_password" size="20" 
+											placeholder="비밀번호를 입력해주세요" required>
+											<i></i>
 										</td>
 									</tr>
 									<tr>
-										<td colspan="2" style="border-bottom:none">
+										<td colspan="2">
 											<br>
-											<div align="right">
+											<div align="center">
 												<input class="inputButton" type="submit" value="로그인">
 												<input class="inputButton" type="reset" value="초기화">
 												<input class="inputButton" type="button" value="회원가입" onclick="window.location='${path}/join.do'">
@@ -64,6 +74,8 @@
 										</td>
 									</tr>
 								</table>
+								
+								
 							</form>
 						</div>	<!-- join -->
 					</div>

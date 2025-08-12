@@ -23,7 +23,9 @@
 	width:100%;
 }
 
-.join {
+/* 로그인 전체 폼 */
+
+.login {
 	display : flex;		/* 한 줄(수평)으로 배치 */
 	justify-content : center;		/* 가운데 배치 */
 	align-items : center;		/* 수평 - 가운데 정렬 */
@@ -32,46 +34,90 @@
 	height:auto;
 	}
 	
-	
-.join th {
-	font-size:15px;
-	font-weight:bold;
-	width:120px;
-	height:60px;
-	text-align:center;
-	padding-right:10px;
-	padding-left:20px;
-	border-bottom:1px solid #ccc;
-	background : whitesmoke;
-	margin-right:5px;
-}
-.join td {
+/* input 감싸는 td에 위치 기준 지정 */
+.login td{
+	position:relative;
 	padding:10px 0 10px 10px;
-	border-bottom:1px solid #ccc;
+}
+.login #bar{
+	border-bottom: 1px solid #ccc;
 }
 
 .input {
 	width:300px;
 	height:40px;
-	border: 1px solid gray;
+	border:none;
 	box-sizing: border-box;
 	padding:0 0 0 10px;
-	border-radius:5px;
+	outline: none;
+	background-color: transparent;
 }
+
+/* 밑줄 애니메이션 라인 */
+.login i {
+	position:absolute; 
+	left:50%; 
+	right:50%; 
+	bottom:0; 
+	border-bottom:2px solid #000; 
+	transition:all .3s ease;
+	pointer-events:none;
+}
+.login input[type="text"]:focus + i,
+.login input[type="password"]:focus + i {
+	left:0; 
+	right:0; 
+}
+
 
 .inputButton {
-	background:whitesmoke;
-	font-size:15px;
-	padding: 5px 10px 5px 10px;
-	border-radius:4px;
+	margin: 8px 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EEEDEB;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#result1 {
-	width : 300px;
+.inputButton:hover {
+    background-color: #E6B9A6;
+}
+
+#loginsuccess-box {
+	max-width:600px;
+	margin: 50px auto;
+	padding : 30px 20px;
+	border-radius : 10px;
+	background-color:#f9f9f9;
+	box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+	text-align:center;
+	font-size:18px;
+	line-height:1.6;
+	color:#333;
+}
+
+#session_box{
+	background-color:rgba(238, 237, 235, 0.2);
+	background-size: 20%;
 }
 
 #adminmode {
-	margin:5px;
-	color:grey;
-	font-weight:bold;
+	display: inline-block;
+    margin-top: 14px;
+    font-weight: bold;
+    color: #000000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+#adminmode:hover {
+    background-color: #E6B9A6;
+}
+
+#session_id {
+	color:#2F3645;
 }
