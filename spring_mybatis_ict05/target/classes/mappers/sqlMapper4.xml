@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.spring.mvc_mybatis.ch04.dao.UserDAO_ch04">  <!-- namespace="패키지명.인터페이스" -->
+	
+	<!-- 공통 -->
+	<sql id="selectUser">
+		SELECT user_id
+			 , user_name
+			 , reg_date
+		  FROM mvc_user_tbl
+	</sql>
+	
+	<!-- 공통 -->
+	<resultMap id="userMap" type="com.spring.mvc_mybatis.ch04.dto.UserDTO_4">
+		<id 	property="userId" 	column="user_id" />
+		<result 	property="userName" 	column="user_name" />
+		<result 	property="regDate" 	column="reg_date" />
+	</resultMap>
+	
+	
+	<!-- 1. -->
+	<select id="getUserInfo1" parameterType="com.spring.mvc_mybatis.ch04.dto.SearchDTO_4" resultMap="userMap">
+		<!-- 방법 1. WHERE user_id IN (1,2)로 검색 -->
+			<!-- WHERE user_id IN (1,2) -->
+		<include refid="selectUser"/>
+		<where>
+			<if test="userIds != null">
+				user_id IN 
+				<!-- (1,2) -->
+				<foreach collection="userIds" item="userId" open="("  separator=","  close=")">
+					#{userId} 	<!-- item="속성명"과 #{속성명}이 일치해야 한다. 단, 속성명은 자유롭게 주어도 된다. -->
+				</foreach>
+			</if>
+			<if test="userNames != null">
+				user_name IN
+				<foreach collection="userNames" item="userName" open="("  separator=","  close=")">
+					#{userName}
+				</foreach>
+			</if>
+		</where>
+	</select>
+
+
+	<!-- 2. collection ="array(배열)"인경우 -->
+	<!-- 배열이라 파라미터 타입을 지정해주지 않는다 -->
+	<select id="getUserInfo2" resultMap="userMap">
+		<include refid="selectUser"/>
+		<where>
+			user_id IN 
+			<!-- (1,2) -->
+			<foreach collection="array" item="userId" open="("  separator=","  close=")">
+				#{userId} 	
+			</foreach>
+		</where>
+	</select>
+
+
+
+	 <!-- 3. collection ="리스트(List)"인 경우 -->
+	 <select id="getUserInfo3" resultMap="userMap">
+	 	<include refid="selectUser"/>
+			<where>
+				user_name IN 
+				<!-- (1,2) -->
+				<foreach collection="list" item="userName" open="("  separator=","  close=")">
+					#{userName} 	
+				</foreach>
+			</where>
+	 </select>
+
+	
+ </mapper> 
+ 
+ 

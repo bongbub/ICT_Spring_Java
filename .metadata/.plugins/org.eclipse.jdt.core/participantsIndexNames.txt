@@ -31,6 +31,8 @@ D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jsps
 \jsp_pj_ict05\src\main\java
 D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2045528838.index
 \jsp_pj_ict05\src\main\java
+D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3312109730.index
+\spring_mybatis_ict05\src\main\java
 D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\543063194.index
 \jsp_mvcAjax_ict05\src\main\java
 D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1420379009.index
@@ -53,6 +55,8 @@ D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jsps
 \spring_mvcAjax_ict05\src\main\java
 D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1923390417.index
 \jsp_pj_ict05\src\main\java
+D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2149385040.index
+\spring_mybatis_ict05\src\main\java
 D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2300232575.index
 \jsp_pj_ict05\src\main\java
 D:\DEV05\workspace_spring_ict05\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4019609750.index
