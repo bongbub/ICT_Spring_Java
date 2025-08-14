@@ -10,6 +10,8 @@
 	<!-- 20250814 추가 
 		<!CDATA[ 문자데이터 ]]>		: CDATA(character data(문자데이터)를 의미하며, 마크업언어(XML)에서 CDATA로 문자들을 감싸면
 									이 문자열들 사이의 데이터는 마크업으로 해석하지 않아야 하는 데이터를 포함하고 있다는 뜻. (XML 기호로 해석하지 말아라) 
+									CDATA 영역에 작성된 특수문자 데이터는 단순한 문자데이터(Character Data)로 인식하므로
+									XML 파서기가 처리하지 않고, 데이터베이스에 그대로 전달함으로써 에러가 발생하지 않도록 한다. 
 	 -->
 	<!--  게시글 목록 -->
 	<select id="boardList" parameterType="java.util.Map" resultType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
@@ -23,8 +25,8 @@
 				WHERE b_show = 'Y' 
 				ORDER BY b_num DESC)  A
 		)
-			 WHERE rn > #{start}
-			   AND rn < #{end}
+			 WHERE rn >= #{start}
+			   AND rn <= #{end}
 		]]>   
 <!-- 			 WHERE rn BETWEEN #{start} AND  #{end}   // 원래 해놓은 방식-->
 	</select>

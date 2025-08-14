@@ -118,7 +118,7 @@
               </children>
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_dCEdb259EfChDraq9-uA_Q" containerData="8290" selectedElement="_dCEdcG59EfChDraq9-uA_Q" horizontal="true">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_dCEdcG59EfChDraq9-uA_Q" containerData="8951" selectedElement="_dCEdcm59EfChDraq9-uA_Q">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_dCEdcG59EfChDraq9-uA_Q" containerData="8951" selectedElement="_dCEdcW59EfChDraq9-uA_Q">
                 <children xsi:type="advanced:Placeholder" xmi:id="_dCEdcW59EfChDraq9-uA_Q" elementId="org.eclipse.ui.editorss" containerData="8920" ref="_dCEf0G59EfChDraq9-uA_Q"/>
                 <children xsi:type="basic:PartStack" xmi:id="_dCEdcm59EfChDraq9-uA_Q" elementId="bottom" containerData="1080" selectedElement="_dCEdc259EfChDraq9-uA_Q">
                   <children xsi:type="advanced:Placeholder" xmi:id="_dCEdc259EfChDraq9-uA_Q" elementId="org.eclipse.ui.console.ConsoleView" ref="_dCFF2m59EfChDraq9-uA_Q" closeable="true">
@@ -231,21 +231,21 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_dCEf0G59EfChDraq9-uA_Q" elementId="org.eclipse.ui.editorss" selectedElement="_Yfk3oXQlEfCp7Nf6rMRxTw">
-      <children xsi:type="basic:PartStack" xmi:id="_Yfk3oXQlEfCp7Nf6rMRxTw" elementId="PartStack@1b3f2fff" selectedElement="_By3lEHjZEfCmbdbU40yEAA">
+      <children xsi:type="basic:PartStack" xmi:id="_Yfk3oXQlEfCp7Nf6rMRxTw" elementId="PartStack@1b3f2fff" selectedElement="_BPQhsHjZEfCmbdbU40yEAA">
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_BPQhsHjZEfCmbdbU40yEAA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="boardMapper.xml" iconURI="platform:/plugin/org.eclipse.wst.xml.ui/icons/xmldoc.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart&quot; name=&quot;boardMapper.xml&quot; partName=&quot;boardMapper.xml&quot; title=&quot;boardMapper.xml&quot; tooltip=&quot;spring_pj_ict05/src/main/resources/mappers/boardMapper.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/spring_pj_ict05/src/main/resources/mappers/boardMapper.xml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;433&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart&quot; name=&quot;boardMapper.xml&quot; partName=&quot;boardMapper.xml&quot; title=&quot;boardMapper.xml&quot; tooltip=&quot;spring_pj_ict05/src/main/resources/mappers/boardMapper.xml&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/spring_pj_ict05/src/main/resources/mappers/boardMapper.xml&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1021&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_By3lEHjZEfCmbdbU40yEAA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="BoardController.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;BoardController.java&quot; partName=&quot;BoardController.java&quot; title=&quot;BoardController.java&quot; tooltip=&quot;spring_pj_ict05/src/main/java/spring/mvc/spring_pj_ict05/controller/BoardController.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/spring_pj_ict05/src/main/java/spring/mvc/spring_pj_ict05/controller/BoardController.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;787&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -430,7 +430,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dCFGCG59EfChDraq9-uA_Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_5FQUsHjYEfCmbdbU40yEAA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_dCFxFG59EfChDraq9-uA_Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_xgMV4HjaEfCmOv3EeEOj4g" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_dCFxFG59EfChDraq9-uA_Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dCFGFW59EfChDraq9-uA_Q" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -464,7 +464,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dCFGZm59EfChDraq9-uA_Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_5FRi0njYEfCmbdbU40yEAA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dCFwxW59EfChDraq9-uA_Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_xgMV7XjaEfCmOv3EeEOj4g" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dCFwxW59EfChDraq9-uA_Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dCFGdG59EfChDraq9-uA_Q" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
