@@ -6,9 +6,15 @@
 	  
 <mapper namespace="spring.mvc.spring_pj_ict05.dao.BoardDAO">  <!-- namespace="패키지명.인터페이스" -->
 	
+	
+	<!-- 20250814 추가 
+		<!CDATA[ 문자데이터 ]]>		: CDATA(character data(문자데이터)를 의미하며, 마크업언어(XML)에서 CDATA로 문자들을 감싸면
+									이 문자열들 사이의 데이터는 마크업으로 해석하지 않아야 하는 데이터를 포함하고 있다는 뜻. (XML 기호로 해석하지 말아라) 
+	 -->
 	<!--  게시글 목록 -->
 	<select id="boardList" parameterType="java.util.Map" resultType="spring.mvc.spring_pj_ict05.dto.BoardDTO">
-		SELECT *
+		<![CDATA[
+			SELECT *
 			FROM
 			(SELECT A.*
 			, rownum AS rn
@@ -17,7 +23,10 @@
 				WHERE b_show = 'Y' 
 				ORDER BY b_num DESC)  A
 		)
-						 WHERE rn BETWEEN #{start} AND  #{end}
+			 WHERE rn > #{start}
+			   AND rn < #{end}
+		]]>   
+<!-- 			 WHERE rn BETWEEN #{start} AND  #{end}   // 원래 해놓은 방식-->
 	</select>
 	
  	<!-- 게시글 갯수 구하기 -->
