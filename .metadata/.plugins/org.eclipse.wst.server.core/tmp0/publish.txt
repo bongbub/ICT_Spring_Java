@@ -1,6 +1,7 @@
 #Tomcat publish data
-#Wed Aug 13 18:19:57 KST 2025
+#Thu Aug 14 15:32:56 KST 2025
 org.eclipse.jst.jee.server\:spring_pj_ict05=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_pj_ict05
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict1\\.m2\\repository\\org\\springframework\\spring-web\\5.1.8.RELEASE\\spring-web-5.1.8.RELEASE.jar=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_pj_ict05\\WEB-INF\\lib\\spring-web-5.1.8.RELEASE.jar
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict1\\.m2\\repository\\org\\springframework\\spring-web\\5.3.24\\spring-web-5.3.24.jar=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_mybatis_ict05\\WEB-INF\\lib\\spring-web-5.3.24.jar
+org.eclipse.jst.jee.server\:spring_mvcAjax_ict05=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_mvcAjax_ict05
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ict1\\.m2\\repository\\org\\springframework\\spring-web\\5.3.24\\spring-web-5.3.24.jar=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_mvcAjax_ict05\\WEB-INF\\lib\\spring-web-5.3.24.jar
 org.eclipse.jst.jee.server\:spring_mybatis_ict05=C\:\\apache-tomcat-9.0.106\\wtpwebapps\\spring_mybatis_ict05

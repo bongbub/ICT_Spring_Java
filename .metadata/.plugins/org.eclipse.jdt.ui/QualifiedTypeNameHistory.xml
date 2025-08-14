@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.Throwable"/>
-    <fullyQualifiedTypeName name="org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Pointcut"/>
-    <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Around"/>
     <fullyQualifiedTypeName name="com.spring.ajax_ict05.dao.SearchDAOImpl"/>
     <fullyQualifiedTypeName name="com.spring.ajax_ict05.dto.SearchDTO"/>
     <fullyQualifiedTypeName name="com.spring.ajax_ict05.service.SearchService"/>
@@ -38,10 +33,6 @@
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch04.dto.SearchDTO_4"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch04.dto.UserDTO_4"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch05.service.UserService_ch05"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -60,4 +51,13 @@
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Update"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Delete"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch06.service.UserServiceImpl_ch06"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.spring.ajax_ict05.dto.ProductDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
 </qualifiedTypeNameHistroy>
