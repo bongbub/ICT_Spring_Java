@@ -29,7 +29,7 @@
 			<li><a href="${path}/join.do">JOIN</a></li>
 			<li><a href="#"><i class="fa-solid fa-basket-shopping"></i></a></li>
 			<li><a href="#"><i class="fa-solid fa-user"></i></a></li>
-			<li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>	<!-- 검색 -->
+			<li><a href="${path}/search.do"><i class="fa-solid fa-magnifying-glass"></i></a></li>	<!-- 검색 -->
 		</ul>
 		
 		

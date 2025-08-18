@@ -6,7 +6,6 @@
     <fullyQualifiedTypeName name="com.spring.ajax_ict05.dao.SearchDAO"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.impl.IOFileUploadException"/>
     <fullyQualifiedTypeName name="com.spring.ajax_ict05.service.SearchServiceImpl"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.controller.MybatisController"/>
     <fullyQualifiedTypeName name="java.lang.System.Logger"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 </qualifiedTypeNameHistroy>
