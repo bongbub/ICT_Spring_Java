@@ -3,6 +3,7 @@ package spring.mvc.spring_pj_ict05.dao;
 import java.util.List;
 import java.util.Map;
 
+
 import spring.mvc.spring_pj_ict05.dto.BoardCommentDTO;
 import spring.mvc.spring_pj_ict05.dto.BoardDTO;
 
@@ -13,8 +14,7 @@ public interface BoardDAO {
 	public List<BoardDTO> boardList(Map<String, Object> map);
 	
 	// 게시글 갯수 구하기
-	public int boardCnt();
-	
+	public int boardCnt(Map<String, Object> params);
 	
 	// 조회수 증가
 	public void plusReadCnt(int num);

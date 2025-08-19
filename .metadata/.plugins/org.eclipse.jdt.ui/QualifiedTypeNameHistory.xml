@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.spring.ajax_ict05.dao.SearchDAOImpl"/>
-    <fullyQualifiedTypeName name="com.spring.ajax_ict05.dto.SearchDTO"/>
-    <fullyQualifiedTypeName name="com.spring.ajax_ict05.service.SearchService"/>
-    <fullyQualifiedTypeName name="com.spring.ajax_ict05.dao.SearchDAO"/>
-    <fullyQualifiedTypeName name="org.apache.tomcat.util.http.fileupload.impl.IOFileUploadException"/>
-    <fullyQualifiedTypeName name="com.spring.ajax_ict05.service.SearchServiceImpl"/>
     <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.controller.MybatisController"/>
     <fullyQualifiedTypeName name="java.lang.System.Logger"/>
@@ -40,7 +34,6 @@
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch05.dao.UserDAO_ch05"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch05.service.UserServiceImpl_ch05"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch05.dto.UserDTO_5"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="com.spring.mvc_mybatis.ch06.dto.UserDTO_6"/>
@@ -60,4 +53,11 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.service.BoardService"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.dto.BoardDTO"/>
+    <fullyQualifiedTypeName name="spring.mvc.spring_pj_ict05.page.Paging"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
 </qualifiedTypeNameHistroy>

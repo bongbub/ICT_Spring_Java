@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring.mvc.spring_pj_ict05.HomeController;
 import spring.mvc.spring_pj_ict05.service.BoardService;
 
 @Controller
@@ -29,8 +28,26 @@ public class BoardController {
 			throws ServletException, IOException{
 		logger.info("  <<< url  ==>  /board_list.bc  >>>");
 		
-		service.boardListAction(request, response, model);
+		String pageNum = request.getParameter("pageNum");     // null이면 Paging이 1로 처리
+	    String searchType = request.getParameter("searchType");  // T/C/W/TC
+	    String keyword    = request.getParameter("keyword");     // 검색어
+		
+		service.boardListAction(request, response,pageNum, searchType, keyword, model);
 		return "admin/csCenter/board_list";
+	}
+	
+	@RequestMapping("/search_list.bc")
+	public String searchList(HttpServletRequest request, HttpServletResponse response, Model model)
+			throws ServletException, IOException{
+		String pageNum = request.getParameter("pageNum");     // null이면 Paging이 1로 처리
+	    String searchType = request.getParameter("searchType");  // T/C/W/TC
+	    String keyword    = request.getParameter("keyword");     // 검색어
+	    service.boardListAction(request, response,pageNum, searchType, keyword, model);
+	    
+	    String viewPage = request.getContextPath()+"/board_list.bc?pageNum="+pageNum+"&keyword="+keyword;
+	    response.sendRedirect(viewPage);
+	    
+	    return null;
 	}
 
 	// [게시글 상세] 화면

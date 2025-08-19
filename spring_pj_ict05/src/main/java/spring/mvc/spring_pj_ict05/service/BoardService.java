@@ -11,7 +11,8 @@ import org.springframework.ui.Model;
 public interface BoardService {
 
 	// 게시글 목록
-	public void boardListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+	public void boardListAction(HttpServletRequest request, HttpServletResponse response, String pageNum,
+				String searchType, String keyword, Model model)
 			throws ServletException, IOException;
 	
 	

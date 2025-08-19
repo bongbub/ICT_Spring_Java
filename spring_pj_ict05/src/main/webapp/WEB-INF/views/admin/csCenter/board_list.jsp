@@ -58,6 +58,15 @@
 					<!-- 우측 화면 시작 -->
 					<div id="right">
 						<div class="table_div">
+							<form method="get" action="${pageContext.request.contextPath}/board_list.bc">
+								<select name="searchType">
+									<option value="title" ${type=="title"?"selected":""}>제목</option>
+									<option value="writer" ${type=="writer"?"selected":""}>작성자</option>
+									<option value="content" ${type=="content"?"selected":""}>내용</option>
+								</select>
+								<input type="text" name="keyword" placeholder="검색어를 입력하세요" value="${fn:escapeXml(keyword)}">
+								<button type="submit">검색</button>
+							</form>
 							<form name="boardList" >
 								<table>
 									<tr>

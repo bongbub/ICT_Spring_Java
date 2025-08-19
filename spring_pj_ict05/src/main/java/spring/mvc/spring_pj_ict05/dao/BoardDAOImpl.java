@@ -1,17 +1,8 @@
 package spring.mvc.spring_pj_ict05.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +38,9 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	// 게시글 갯수 구하기
 	@Override
-	public int boardCnt() {
+	public int boardCnt(Map<String, Object> params) {
 		System.out.println(" <<< BoardDAOImpl - boardCnt() >>>");
-		int total = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.BoardDAO.boardCnt");
+		int total = sqlSession.selectOne("spring.mvc.spring_pj_ict05.dao.BoardDAO.boardCnt", params);
 		return total;
 	}
 	

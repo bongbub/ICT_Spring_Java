@@ -27,39 +27,49 @@ public class BoardServiceImpl implements BoardService{
 	
 	// 게시글 목록
 	@Override
-	public void boardListAction(HttpServletRequest request, HttpServletResponse response, Model model)
+	public void boardListAction(HttpServletRequest request, HttpServletResponse response,
+			String pageNum,String searchType, String keyword, Model model)
 			throws ServletException, IOException {
 		
 		System.out.println(" @@@  BoardServiceImpl   -   boardListAction()  @@@");
 		
-		// 3단계 - 화면에서 입력받은 값 가져오기
-		String pageNum = request.getParameter("pageNum");
+//		// 3단계 - 화면에서 입력받은 값 가져오기
+//		String pageNum = request.getParameter("pageNum");
 		
 		// 4단계 - 싱글톤 방식으W로 DAO 객체 생성 다형성 적용
 //		BoardDAO dao = BoardDAOImpl.getInstance();
 		
 		// 5-1단계 - 전체 게시글 갯수 카운트
 		Paging paging = new Paging(pageNum);
-		int total = dao.boardCnt();
-		System.out.println("total :" + total);
+		
+		Map<String, Object> cParam = new HashMap<>();
+		cParam.put("searchType", searchType);
+		cParam.put("keyword", keyword);
+		
+		int total = dao.boardCnt(cParam);
+//		System.out.println("total :" + total);
 		
 		paging.setTotalCount(total);
 		
 		// 5단계 - 게시글 목록 조회
+		Map<String, Object> map = new HashMap<String, Object>();
 		int start = paging.getStartRow();
 		int end = paging.getEndRow();
 		
-		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
+		map.put("searchType", searchType);
+		map.put("keyword", keyword);
 		
 		
 		List<BoardDTO> list = dao.boardList(map);
-		System.out.println("list : "+ list);
+//		System.out.println("list : "+ list);
 		
 		// 6단계 - jsp로 처리 결과 전달
 		model.addAttribute("list", list);
 		model.addAttribute("paging", paging);
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
 	}
 
 	
