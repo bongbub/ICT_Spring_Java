@@ -44,7 +44,7 @@ public class BoardController {
 	    String keyword    = request.getParameter("keyword");     // 검색어
 	    service.boardListAction(request, response,pageNum, searchType, keyword, model);
 	    
-	    String viewPage = request.getContextPath()+"/board_list.bc?pageNum="+pageNum+"&keyword="+keyword;
+	    String viewPage = request.getContextPath()+"/board_list.bc?pageNum="+pageNum+"&searchType="+searchType+"&keyword="+keyword;
 	    response.sendRedirect(viewPage);
 	    
 	    return null;

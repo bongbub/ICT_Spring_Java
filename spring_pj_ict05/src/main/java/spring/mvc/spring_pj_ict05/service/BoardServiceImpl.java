@@ -45,6 +45,7 @@ public class BoardServiceImpl implements BoardService{
 		Map<String, Object> cParam = new HashMap<>();
 		cParam.put("searchType", searchType);
 		cParam.put("keyword", keyword);
+		System.out.println("searchType : "+searchType);
 		
 		int total = dao.boardCnt(cParam);
 //		System.out.println("total :" + total);

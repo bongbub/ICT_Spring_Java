@@ -45,7 +45,7 @@
 			<div id="contents">
 				<!-- 상단 중앙 1 시작 -->
 				<div>
-					<h1 align="center"> 게시판 목록 </h1>
+					<h1 align="center"><a href="${path}/board_list.bc" style="color:black">게시판 목록</a> </h1>
 				</div>
 				<!-- 상단 중앙 1 끝 -->
 				
@@ -60,11 +60,11 @@
 						<div class="table_div">
 							<form method="get" action="${pageContext.request.contextPath}/board_list.bc">
 								<select name="searchType">
-									<option value="title" ${type=="title"?"selected":""}>제목</option>
-									<option value="writer" ${type=="writer"?"selected":""}>작성자</option>
-									<option value="content" ${type=="content"?"selected":""}>내용</option>
+									<option value="T" ${searchType=="T"?"selected":""}>제목</option>
+									<option value="W" ${searchType=="W"?"selected":""}>작성자</option>
+									<option value="C" ${searchType=="C"?"selected":""}>내용</option>
 								</select>
-								<input type="text" name="keyword" placeholder="검색어를 입력하세요" value="${fn:escapeXml(keyword)}">
+								<input type="text" name="keyword" placeholder="검색어를 입력하세요" value="${fn:escapeXml(keyword)}">	
 								<button type="submit">검색</button>
 							</form>
 							<form name="boardList" >
@@ -110,7 +110,7 @@
 												<!-- 이전 버튼 활성화 -->
 												<c:if test="${paging.startPage > 10}">
 													<li>
-														<a href="${path}/board_list.bc?pageNum=${paging.prev}" class="prevPage"> [ 이전 ]</a>
+														<a href="${path}/board_list.bc?pageNum=${paging.prev}&searchType=${searchType}&keyword=${keyword}" class="prevPage"> [ 이전 ]</a>
 													</li>
 												</c:if>
 												
@@ -118,7 +118,7 @@
 												<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">	<!-- paging=>serviceimpl에서 넘겨준 참조변수, 의 멤버변수 호출 -->
 													<li>
 														<!-- 해당 페이지를 클릭할 때마다 번호를 pageNum에 넣어 ServiceImpl전송 및 처리 -->
-														<a href="${path}/board_list.bc?pageNum=${num}" class="<c:if test='${num == paging.currentPage}'> active </c:if>">${num}</a>
+														<a href="${path}/board_list.bc?pageNum=${num}&searchType=${searchType}&keyword=${keyword}" class="<c:if test='${num == paging.currentPage}'> active </c:if>">${num}</a>
 													</li>
 												</c:forEach>
 												
@@ -126,7 +126,7 @@
 												<!-- 다음 버튼 활성화 -->
 												<c:if test="${paging.endPage < paging.pageCount}">
 													<li>
-														<a href="${path}/board_list.bc?pageNum=${paging.next}" class="nextPage"> [ 다음 ]</a>
+														<a href="${path}/board_list.bc?pageNum=${paging.next}&searchType=${searchType}&keyword=${keyword}" class="nextPage"> [ 다음 ]</a>
 													</li>
 												</c:if>
 												
